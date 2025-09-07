@@ -1,0 +1,461 @@
+body {
+	font-family: "Mada" "Segoe UI", sans-serif;
+	background-color: #212529;
+	color: #f0f0f0;
+}
+
+.text-main {
+	/*background-color: #121212;*/
+	font-family: "Mada" "Segoe UI", sans-serif;
+	color: #f0f0f0;
+}
+
+h1, h2, h3, h4, h5, h6, .text-headline {
+	font-family:'Quicksand';
+}
+
+a {
+	text-decoration: none;
+}
+
+img#logo {
+	width: 212px;
+	height: 75px;
+}
+
+img#logo-footer {
+	width: 24px;
+	height: 24px;
+}
+
+.nav-link {
+	font-family:'Quicksand';
+	font-weight: bold;
+	margin-top: 0.2em;
+}
+
+#header-gap {
+	height: 100px;
+	padding: 0;
+}
+
+.text-muted-dark {
+	color: #8d9cad;
+}
+
+.text-green {
+	color: #0eab2f !important;
+}
+
+.link-green {
+	color: #0eab2f !important;
+}
+
+.link-green:hover {
+	color: #0c942a !important;
+}
+
+.link-facebook { color: #0aa550; }
+.link-twitter {	color: #0aa550; }
+.link-linkedin { color: #0aa550; }
+.link-youtube { color: #0aa550; }
+.link-vimeo { color: #0aa550; }
+.link-discord { color: #0aa550; }
+.link-email { color: #0aa550; }
+
+.navbar {
+	background: rgba(18, 18, 18, 0.9);
+	box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+.btn-primary {
+	background-color: #0eab2f;
+	border-radius: 50px;
+	border: none;
+	padding: 0.6rem 1.4rem;
+	font-family:'Quicksand';
+	font-weight: bold;
+	box-shadow: 0 4px 14px rgba(0,0,0,0.6);
+}
+
+.btn-primary:hover {
+	background-color: #10bd35;
+}
+
+.btn-primary:active {
+	background-color: #0b972a !important;
+}
+
+.btn-success {
+	border-radius: 24px;
+}
+
+.parallax {
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.parallax-100 {
+	min-height: 100vh;
+}
+
+.parallax-80 {
+	min-height: 80vh;
+}
+
+.section {
+	padding: 80px 20px;
+}
+
+.card {
+	background: #1e1e1e;
+	color: #ddd;
+	border-radius: 20px;
+	box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+footer {
+	background: rgba(18, 18, 18, 0.9);
+	padding: 40px 20px;
+	text-align: center;
+	color: #bbb;
+}
+
+footer a.link-footer {
+	color: #bbb;
+	margin: 0 10px;
+}
+
+footer a:hover {
+	color: #fff;
+}
+
+#backToTop {
+	position: fixed;
+	width: 54px;
+	height: 54px;
+	bottom: 20px;
+	right: 20px;
+	display: none;
+}
+
+section.goal-section {
+	background-image: url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.jpg");
+	background-image: -webkit-image-set(
+		url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.avif") type("image/avif") 1x,
+		url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-lg.avif") type("image/avif") 2x,
+		url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.jpg") type("image/jpeg") 1x,
+		url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-lg.jpg") type("image/jpeg") 2x
+	);
+	background-image: image-set(
+		"https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.avif" type("image/avif") 1x,
+		"https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-lg.avif" type("image/avif") 2x,
+		"https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.jpg" type("image/jpeg") 1x,
+		"https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-lg.jpg" type("image/jpeg") 2x
+	);
+	height: 65vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position-y: 100px;
+}
+
+section.versions-section {
+	background-color: #181b1e;
+}
+
+section.banner-section {
+	background-image: url("https://cdn.gizmify.ca/prod/www/img/mediaplane/banner-md.jpg");
+	background-image: -webkit-image-set(
+		url("https://cdn.gizmify.ca/prod/www/img/mediaplane/banner-md.avif") type("image/avif") 1x,
+		url("https://cdn.gizmify.ca/prod/www/img/mediaplane/banner-lg.avif") type("image/avif") 2x,
+		url("https://cdn.gizmify.ca/prod/www/img/mediaplane/banner-md.jpg") type("image/jpeg") 1x,
+		url("https://cdn.gizmify.ca/prod/www/img/mediaplane/banner-lg.jpg") type("image/jpeg") 2x
+	);
+	background-image: image-set(
+		"https://cdn.gizmify.ca/prod/www/img/mediaplane/banner-md.avif" type("image/avif") 1x,
+		"https://cdn.gizmify.ca/prod/www/img/mediaplane/banner-lg.avif" type("image/avif") 2x,
+		"https://cdn.gizmify.ca/prod/www/img/mediaplane/banner-md.jpg" type("image/jpeg") 1x,
+		"https://cdn.gizmify.ca/prod/www/img/mediaplane/banner-lg.jpg" type("image/jpeg") 2x
+	);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+section.campaign-section {
+	background-image: url("https://cdn.gizmify.ca/prod/www/img/mediaplane/features-md.jpg");
+	background-image: -webkit-image-set(
+		url("https://cdn.gizmify.ca/prod/www/img/mediaplane/features-md.avif") type("image/avif") 1x,
+		url("https://cdn.gizmify.ca/prod/www/img/mediaplane/features-lg.avif") type("image/avif") 2x,
+		url("https://cdn.gizmify.ca/prod/www/img/mediaplane/features-md.jpg") type("image/jpeg") 1x,
+		url("https://cdn.gizmify.ca/prod/www/img/mediaplane/features-lg.jpg") type("image/jpeg") 2x
+	);
+	background-image: image-set(
+		"https://cdn.gizmify.ca/prod/www/img/mediaplane/features-md.avif" type("image/avif") 1x,
+		"https://cdn.gizmify.ca/prod/www/img/mediaplane/features-lg.avif" type("image/avif") 2x,
+		"https://cdn.gizmify.ca/prod/www/img/mediaplane/features-md.jpg" type("image/jpeg") 1x,
+		"https://cdn.gizmify.ca/prod/www/img/mediaplane/features-lg.jpg" type("image/jpeg") 2x
+	);
+}
+
+@media (max-width: 768px) {
+	section.campaign-section {
+		background-image: url("https://cdn.gizmify.ca/prod/www/img/mediaplane/features-sm.jpg");
+		background-image: -webkit-image-set(
+			url("https://cdn.gizmify.ca/prod/www/img/mediaplane/features-sm.avif") type("image/avif") 1x,
+			url("https://cdn.gizmify.ca/prod/www/img/mediaplane/features-md.avif") type("image/avif") 2x,
+			url("https://cdn.gizmify.ca/prod/www/img/mediaplane/features-sm.jpg") type("image/jpeg") 1x,
+			url("https://cdn.gizmify.ca/prod/www/img/mediaplane/features-md.jpg") type("image/jpeg") 2x
+		);
+		background-image: image-set(
+			"https://cdn.gizmify.ca/prod/www/img/mediaplane/features-sm.avif" type("image/avif") 1x,
+			"https://cdn.gizmify.ca/prod/www/img/mediaplane/features-md.avif" type("image/avif") 2x,
+			"https://cdn.gizmify.ca/prod/www/img/mediaplane/features-sm.jpg" type("image/jpeg") 1x,
+			"https://cdn.gizmify.ca/prod/www/img/mediaplane/features-md.jpg" type("image/jpeg") 2x
+		);
+	}
+}
+
+section.tiers-section {
+	background-image: url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.jpg");
+	background-image: -webkit-image-set(
+		url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.avif") type("image/avif") 1x,
+		url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-lg.avif") type("image/avif") 2x,
+		url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.jpg") type("image/jpeg") 1x,
+		url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-lg.jpg") type("image/jpeg") 2x
+	);
+	background-image: image-set(
+		"https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.avif" type("image/avif") 1x,
+		"https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-lg.avif" type("image/avif") 2x,
+		"https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.jpg" type("image/jpeg") 1x,
+		"https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-lg.jpg" type("image/jpeg") 2x
+	);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position-y: 100px;
+}
+
+@media (max-width: 768px) {
+	section.tiers-section {
+		background-image: url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-sm.jpg");
+		background-image: -webkit-image-set(
+			url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-sm.avif") type("image/avif") 1x,
+			url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.avif") type("image/avif") 2x,
+			url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-sm.jpg") type("image/jpeg") 1x,
+			url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.jpg") type("image/jpeg") 2x
+		);
+		background-image: image-set(
+			"https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-sm.avif" type("image/avif") 1x,
+			"https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.avif" type("image/avif") 2x,
+			"https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-sm.jpg" type("image/jpeg") 1x,
+			"https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.jpg" type("image/jpeg") 2x
+		);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+}
+
+.card-campaign {
+	min-height: 310px;
+	background-color: #1e1e1ecc;
+	backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+	border: 0;
+}
+
+.about-img {
+	border-radius: 12px;
+	max-width: 100%;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment  {
+    height: 0px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-track-piece  {
+    background-color: #3a3d3f;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    height: 50px;
+    background-color: #198754;
+    border: 0px solid #000000;
+    -webkit-border-radius: 6px;
+}
+
+.w-66 { width: 66%; }
+.w-33 { width: 33%; }
+.gi { pointer-events: none; }
+.gi-tt { vertical-align: text-top; }
+.gi-xs { width: 12px; height: 12px; }
+.gi-vs { width: 14px; height: 14px; }
+.gi-sm { width: 16px; height: 16px; }
+.gi-md { width: 32px; height: 32px; }
+.gi-lg { width: 64px; height: 64px; }
+.gi-xl { width: 128px; height: 128px; }
+
+.gizmify-list-wrapper ul {
+	list-style: none;
+    padding-left: 0;
+}
+
+.gizmify-list-wrapper li {
+	position: relative;
+  	padding-left: 1.5em;
+}
+
+.gizmify-list-wrapper li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0%;
+	transform: translateY(50%);
+	width: 0.75em;
+	height: 0.75em;
+	background-image: url('https://cdn.gizmify.ca/prod/www/img/gear-green.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.gizmify-list-wrapper li.gizmify-list-item-red::before {
+	background-image: url('https://cdn.gizmify.ca/prod/www/img/gear-red.svg');
+}
+
+.gizmify-list-wrapper li.gizmify-list-item-green::before {
+	background-image: url('https://cdn.gizmify.ca/prod/www/img/gear-green.svg');
+}
+
+.feature-video {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	width: 252px;
+	border-radius: 12px;
+	overflow: hidden;
+	margin-bottom: 18px;
+}
+
+.feature-video video {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 12px;
+}
+
+.feature-image {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	width: 252px;
+	border-radius: 12px;
+	overflow: hidden;
+	margin-bottom: 18px;
+}
+
+.feature-image img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 12px;
+	transition: transform 0.4s ease;
+}
+
+.feature-image img:hover {
+	transform: scale(1.05);
+}
+
+.play-icon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 3rem;
+	color: white;
+	opacity: 0.8;
+	transition: opacity 0.3s ease;
+	pointer-events: none;
+}
+
+.feature-video:hover .play-icon {
+	opacity: 0;
+}
+
+span.carousel-control-next-icon,
+span.carousel-control-prev-icon {
+	filter: none !important;
+}
+
+.nav-tabs .nav-link {
+	background-color: #212529;
+	color: #f8f9fa;
+	border: none;
+	margin-right: 2px;
+}
+
+.nav-tabs .nav-link.active {
+	background-color: #343a40;
+	color: #fff;
+	border-top: 1px solid #1e1e1e !important;
+	border-left: 1px solid #1e1e1e !important;
+	border-right: 1px solid #1e1e1e !important;
+}
+
+.nav-tabs {
+	border-bottom: none;
+}
+
+.tab-content {
+	background-color: #343a40 !important;
+	border-radius: 0 0.5rem 0.5rem 0.5rem;
+	box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+	border: 1px solid #1e1e1e !important;
+}
+
+.accordion-button {
+	background-color: #2c2c2c;
+	color: #e0e0e0;
+}
+
+.accordion-button:active {
+	outline: 2px solid #0eab2f !important;
+}
+
+.accordion-button:not(.collapsed) {
+	background-color: #444;
+	color: #fff;
+}
+
+.accordion-body {
+	background-color: #1e1e1e;
+	color: #cfcfcf;
+}
+
+nav.toc {
+	background-color: #1e1e1e;
+	border-radius: 24px;
+}
+
+.content-section {
+	transition: opacity 0.3s ease;
+}
+
+.d-none {
+	display: none !important;
+}
+
+a.toc-btn {
+	margin: 1em 2em;
+	min-width: 155px;
+}
