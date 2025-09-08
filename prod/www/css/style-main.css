@@ -117,6 +117,10 @@ img#logo-footer {
 	min-height: 80vh;
 }
 
+.parallax-50 {
+	min-height: 50vh;
+}
+
 .section {
 	padding: 80px 20px;
 }
@@ -197,6 +201,7 @@ section.banner-section {
 
 section.who-its-for-section {
 	background-image: url("https://cdn.gizmify.ca/prod/www/img/general/bg-dark-gray-tile.png");
+	background-size: auto;
 	background-repeat: repeat;
 }
 
