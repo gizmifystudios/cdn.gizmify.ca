@@ -355,7 +355,7 @@ section.tiers-section {
 	position: relative;
 	display: inline-block;
 	cursor: pointer;
-	width: 252px;
+	width: 100%;
 	border-radius: 12px;
 	overflow: hidden;
 	margin-bottom: 18px;
@@ -372,7 +372,7 @@ section.tiers-section {
 	position: relative;
 	display: inline-block;
 	cursor: pointer;
-	width: 252px;
+	width: 100%;
 	border-radius: 12px;
 	overflow: hidden;
 	margin-bottom: 18px;
