@@ -461,8 +461,8 @@ a.toc-btn {
 }
 
 .client-logos img {
-	display: inline-block;
 	width: 160px;
 	height: auto;
 	margin: 1em;
+	margin-bottom: 0;
 }
