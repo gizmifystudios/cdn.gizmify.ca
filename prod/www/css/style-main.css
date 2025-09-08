@@ -459,3 +459,10 @@ a.toc-btn {
 	margin: 1em 2em;
 	min-width: 155px;
 }
+
+.client-logos img {
+	display: inline-block;
+	width: 160px;
+	height: auto;
+	margin: 1em;
+}
