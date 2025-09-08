@@ -48,6 +48,10 @@ img#logo-footer {
 	color: #8d9cad;
 }
 
+.bg-darker {
+	background: #1e1e1e;
+}
+
 .text-green {
 	color: #0eab2f !important;
 }
