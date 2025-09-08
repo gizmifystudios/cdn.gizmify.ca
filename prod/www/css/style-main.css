@@ -109,17 +109,10 @@ img#logo-footer {
 	text-align: center;
 }
 
-.parallax-100 {
-	min-height: 100vh;
-}
-
-.parallax-80 {
-	min-height: 80vh;
-}
-
-.parallax-50 {
-	min-height: 50vh;
-}
+.parallax-100 { min-height: 100vh; }
+.parallax-80 { min-height: 80vh; }
+.parallax-65 { min-height: 50vh; }
+.parallax-50 { min-height: 50vh; }
 
 .section {
 	padding: 80px 20px;
