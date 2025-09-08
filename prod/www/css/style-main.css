@@ -195,6 +195,10 @@ section.banner-section {
 	background-repeat: no-repeat;
 }
 
+section.who-its-for-section {
+	background-image: url("https://cdn.gizmify.ca/prod/www/img/general/bg-blue-tile.png");
+}
+
 section.campaign-section {
 	background-image: url("https://cdn.gizmify.ca/prod/www/img/mediaplane/features-md.jpg");
 	background-image: -webkit-image-set(
