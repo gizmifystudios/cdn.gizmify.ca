@@ -41,29 +41,36 @@ function activateBackToTop() {
 	};
 }
 
+function _setTOCSection(target) {
+	if (target && target.startsWith('#')) {
+		e.preventDefault();
+
+		document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('d-none'));
+
+		const section = document.querySelector(target);
+		if (section) section.classList.remove('d-none');
+
+		document.querySelectorAll('#toc a').forEach(nav => nav.classList.remove('active'));
+		const navLink = document.querySelector(`#toc a[href="${target}"]`);
+		if (navLink) navLink.classList.add('active');
+
+		const tocCollapse = document.querySelector('#tocCollapse');
+		if (tocCollapse && bootstrap.Collapse.getInstance(tocCollapse)) {
+			bootstrap.Collapse.getInstance(tocCollapse).hide();
+		}
+	}
+}
+
 function activateTableOfContents() {
 	document.querySelectorAll('#toc a, .toc-btn, .link-toc').forEach(link => {
 		link.addEventListener('click', function(e) {
 			const target = this.getAttribute('href');
-			if (target && target.startsWith('#')) {
-				e.preventDefault();
-
-				document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('d-none'));
-
-				const section = document.querySelector(target);
-				if (section) section.classList.remove('d-none');
-
-				document.querySelectorAll('#toc a').forEach(nav => nav.classList.remove('active'));
-				const navLink = document.querySelector(`#toc a[href="${target}"]`);
-				if (navLink) navLink.classList.add('active');
-
-				const tocCollapse = document.querySelector('#tocCollapse');
-				if (tocCollapse && bootstrap.Collapse.getInstance(tocCollapse)) {
-					bootstrap.Collapse.getInstance(tocCollapse).hide();
-				}
-			}
+			_setTOCSection(target);
 		});
 	});
+
+	const target = window.location.hash;
+	if (target) _setTOCSection(target);
 }
 
 function activateFeatureVideos() {
