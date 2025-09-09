@@ -24,18 +24,17 @@ function backToTop() {
 }
 
 function scrollFunction(toTopBtn) {
-	if (document.body.scrollTop > 20 ||
-	document.documentElement.scrollTop > 20) {
+	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 		toTopBtn.style.display = "block";
 	}
 	else {
 		toTopBtn.style.display = "none";
 	}
-	toTopBtn.addEventListener("click", backToTop);
 }
 
 function activateBackToTop() {
 	let toTopBtn = document.getElementById("backToTop");
+	toTopBtn.addEventListener("click", backToTop);
 	window.onscroll = function() {
 		scrollFunction(toTopBtn);
 	};
@@ -64,6 +63,7 @@ function activateTableOfContents() {
 			if (target && target.startsWith('#')) {
 				e.preventDefault();
 				_setTOCSection(target);
+				backToTop();
 			}
 		});
 	});
