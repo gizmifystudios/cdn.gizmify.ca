@@ -480,6 +480,10 @@ a.toc-btn {
 	min-width: 200px;
 }
 
+p.attribute-desc {
+	padding-left: 1em;
+}
+
 .client-logos img {
 	width: 160px;
 	height: auto;
