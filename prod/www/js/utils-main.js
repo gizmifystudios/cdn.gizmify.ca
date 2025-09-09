@@ -60,10 +60,9 @@ function _setTOCSection(target) {
 function activateTableOfContents() {
 	document.querySelectorAll('#toc a, .toc-btn, .link-toc').forEach(link => {
 		link.addEventListener('click', function(e) {
+			const target = this.getAttribute('href');
 			if (target && target.startsWith('#')) {
 				e.preventDefault();
-				
-				const target = this.getAttribute('href');
 				_setTOCSection(target);
 			}
 		});
