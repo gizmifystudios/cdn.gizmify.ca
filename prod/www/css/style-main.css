@@ -464,7 +464,7 @@ nav.toc {
 }
 
 nav.toc a.active {
-	color: #f0f0f0;
+	color: #f0f0f0 !important;
 }
 
 .content-section {
@@ -477,7 +477,7 @@ nav.toc a.active {
 
 a.toc-btn {
 	margin: 1em 2em;
-	min-width: 155px;
+	min-width: 200px;
 }
 
 .client-logos img {
