@@ -42,7 +42,7 @@ function activateBackToTop() {
 }
 
 function activateTableOfContents() {
-	document.querySelectorAll('#toc a, .btn').forEach(link => {
+	document.querySelectorAll('#toc a, .toc-btn, .link-toc').forEach(link => {
 		link.addEventListener('click', function(e) {
 			const target = this.getAttribute('href');
 			if (target && target.startsWith('#')) {
