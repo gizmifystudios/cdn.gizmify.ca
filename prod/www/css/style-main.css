@@ -463,6 +463,10 @@ nav.toc {
 	border-radius: 24px;
 }
 
+nav.toc a.active {
+	color: #f0f0f0;
+}
+
 .content-section {
 	transition: opacity 0.3s ease;
 }
