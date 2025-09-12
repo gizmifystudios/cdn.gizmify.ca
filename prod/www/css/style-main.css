@@ -117,6 +117,7 @@ img#logo-footer {
 .parallax-80 { min-height: 80vh; }
 .parallax-65 { min-height: 65vh; }
 .parallax-50 { min-height: 50vh; }
+.parallax-30 { min-height: 30vh; }
 
 .section {
 	padding: 80px 20px;
@@ -426,7 +427,7 @@ span.carousel-control-prev-icon {
 }
 
 .carousel-item {
-	height: 75vh;
+	height: 100vh;
 	min-height: 400px;
 	background-size: cover;
 	background-position: center;
