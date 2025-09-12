@@ -413,6 +413,18 @@ span.carousel-control-prev-icon {
 	filter: none !important;
 }
 
+.carousel-item {
+	height: 100vh;
+	min-height: 400px;
+	background-size: cover;
+	background-position: center;
+}
+.carousel-caption {
+	background: rgba(0, 0, 0, 0.5); 
+	border-radius: 0.5rem;
+	padding: 1rem 2rem;
+}
+
 .nav-tabs .nav-link {
 	background-color: #212529;
 	color: #f8f9fa;
