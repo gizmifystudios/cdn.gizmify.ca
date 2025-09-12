@@ -477,6 +477,10 @@ span.carousel-control-prev-icon {
 	right: 200px;
 }
 
+.carousel-caption-goal {
+	bottom: 50% !important;
+}
+
 .nav-tabs .nav-link {
 	background-color: #212529;
 	color: #f8f9fa;
