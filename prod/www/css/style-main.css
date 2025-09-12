@@ -429,6 +429,7 @@ div.carousel-item-goal {
 		"https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.jpg" type("image/jpeg") 1x,
 		"https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-lg.jpg" type("image/jpeg") 2x
 	);
+	background-position-y: 100px;
 }
 
 div.carousel-item-mediaplane {
