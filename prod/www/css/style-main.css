@@ -490,6 +490,14 @@ span.carousel-control-prev-icon {
 	right: 120px;
 }
 
+@media (max-width: 768px) {
+	.carousel-caption-mediaplane {
+		max-height:200px;
+		bottom: 200px !important;
+		right: 20px;
+	}
+}
+
 .carousel-caption-goal {
 	bottom: 30% !important
 }
