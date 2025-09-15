@@ -156,13 +156,13 @@ footer a:hover {
 }
 
 #btn-download-top {
-	display: none;
+    opacity: 0;
 	transform: scale(0.5);
 	transition: all 0.5s ease;
 }
 
 #btn-download-top.visible {
-	display: inline-block;
+	opacity: 1;
 	transform: scale(1);
 }
 
