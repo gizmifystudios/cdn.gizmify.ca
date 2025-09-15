@@ -23,6 +23,11 @@ function backToTop() {
 	document.documentElement.scrollTop = 0;
 }
 
+function activateBackToTop() {
+	let toTopBtn = document.getElementById("backToTop");
+	toTopBtn.addEventListener("click", backToTop);
+}
+
 function activateScroll() {
 	let toTopBtn = document.getElementById("backToTop");
 	window.onscroll = function() {
@@ -95,5 +100,6 @@ function activateFeatureVideos() {
 function activateAll() {
 	loadIcons();
 	activateTooltips();
+	activateBackToTop();
 	activateScroll();
 }
