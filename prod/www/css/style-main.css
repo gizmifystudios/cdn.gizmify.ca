@@ -162,8 +162,11 @@ footer a:hover {
 	transition: all 0.5s ease;
 }
 
-#btn-download-top.visible {
+#btn-download-top.shown {
 	display: inline-block;
+}
+
+#btn-download-top.visible {
 	opacity: 1;
 	transform: scale(1);
 }
