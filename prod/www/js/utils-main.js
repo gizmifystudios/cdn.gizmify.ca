@@ -30,6 +30,8 @@ function activateBackToTop() {
 
 function activateScroll() {
 	let toTopBtn = document.getElementById("backToTop");
+	let downloadBtn = document.getElementById("btn-download-top");
+	
 	window.onscroll = function() {
 		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 			toTopBtn.style.display = "block";
@@ -37,15 +39,14 @@ function activateScroll() {
 		else {
 			toTopBtn.style.display = "none";
 		}
+		
+		if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+			downloadBtn.classList.add("show");
+		}
+		else {
+			downloadBtn.classList.remove("show");
+		}
 	};
-	
-	let downloadBtn = document.getElementById("btn-download-top");
-	if (window.scrollY > 400) {
-		downloadBtn.classList.add("show");
-	}
-	else {
-		downloadBtn.classList.remove("show");
-	}
 }
 
 function _setTOCSection(target) {
