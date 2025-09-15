@@ -40,11 +40,11 @@ function activateScroll() {
 			toTopBtn.style.display = "none";
 		}
 		
-		if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
-			downloadBtn.classList.add("show");
+		if (document.body.scrollTop > 512 || document.documentElement.scrollTop > 512) {
+			downloadBtn.classList.add("visible");
 		}
 		else {
-			downloadBtn.classList.remove("show");
+			downloadBtn.classList.remove("visible");
 		}
 	};
 }
