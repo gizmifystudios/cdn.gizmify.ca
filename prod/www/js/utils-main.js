@@ -23,21 +23,24 @@ function backToTop() {
 	document.documentElement.scrollTop = 0;
 }
 
-function scrollFunction(toTopBtn) {
-	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-		toTopBtn.style.display = "block";
+function activateScroll() {
+	let toTopBtn = document.getElementById("backToTop");
+	window.onscroll = function() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			toTopBtn.style.display = "block";
+		}
+		else {
+			toTopBtn.style.display = "none";
+		}
+	};
+	
+	let downloadBtn = document.getElementById("btn-download-top");
+	if (window.scrollY > 400) {
+		downloadBtn.classList.add("show");
 	}
 	else {
-		toTopBtn.style.display = "none";
+		downloadBtn.classList.remove("show");
 	}
-}
-
-function activateBackToTop() {
-	let toTopBtn = document.getElementById("backToTop");
-	toTopBtn.addEventListener("click", backToTop);
-	window.onscroll = function() {
-		scrollFunction(toTopBtn);
-	};
 }
 
 function _setTOCSection(target) {
@@ -92,5 +95,5 @@ function activateFeatureVideos() {
 function activateAll() {
 	loadIcons();
 	activateTooltips();
-	activateBackToTop();
+	activateScroll();
 }

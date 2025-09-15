@@ -155,6 +155,17 @@ footer a:hover {
 	display: none;
 }
 
+#btn-download-top {
+	display: none;
+	transform: scale(0.5);
+	transition: all 0.5s ease;
+}
+
+#btn-download-top.show {
+	display: inline-block;
+	transform: scale(1);
+}
+
 section.goal-section {
 	background-image: url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.jpg");
 	background-image: -webkit-image-set(
