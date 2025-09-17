@@ -113,12 +113,6 @@ img#logo-footer {
 	text-align: center;
 }
 
-@media (max-width: 767px) {
-	.parallax {
-    	background-attachment: scroll;
-	}
-}
-
 .parallax-100 { min-height: 100vh; }
 .parallax-80 { min-height: 80vh; }
 .parallax-65 { min-height: 65vh; }
@@ -223,6 +217,13 @@ section.banner-section {
 	);
 	background-size: cover;
 	background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+	section.banner-section {
+		background-size: cover;
+		background-position-x: 50%;
+	}
 }
 
 section.who-its-for-section {
