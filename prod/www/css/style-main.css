@@ -171,12 +171,6 @@ footer a:hover {
 	transform: scale(1);
 }
 
-@media (max-width: 768px) {
-	.banner-content {
-		bottom: 0px;
-	}
-}
-
 section.goal-section {
 	background-image: url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.jpg");
 	background-image: -webkit-image-set(
@@ -228,6 +222,22 @@ section.banner-section {
 @media (max-width: 768px) {
 	section.banner-section {
 		background-position-x: 50%;
+	}
+}
+
+section.banner-section .container {
+	position: relative !important;
+}
+
+@media (max-width: 768px) {
+	section.banner-section .container {
+		position: absolute !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.banner-content {
+		bottom: 0px;
 	}
 }
 
