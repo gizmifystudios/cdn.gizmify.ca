@@ -114,8 +114,8 @@ img#logo-footer {
 }
 
 @media (max-width: 767px) {
-	.parallax-section {
-    	background-attachment: scroll !important;
+	.parallax {
+    	background-attachment: scroll;
 	}
 }
 
