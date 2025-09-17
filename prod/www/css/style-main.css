@@ -23,6 +23,12 @@ a {
 	color: #d3d3d3;
 }
 
+@media (max-width: 768px) {
+	.lead {
+		font-size: 2rem;
+	}
+}
+
 .text-tag {
 	color: #d3d3d3;
 }
@@ -235,9 +241,13 @@ section.banner-section .container {
 	}
 }
 
+.banner-content {
+	top: 0 !important;
+}
+
 @media (max-width: 768px) {
 	.banner-content {
-		bottom: 0px;
+		bottom: 0px !important;
 	}
 }
 
