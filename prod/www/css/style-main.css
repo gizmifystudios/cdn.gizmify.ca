@@ -548,7 +548,7 @@ span.carousel-control-prev-icon {
 @media (max-width: 768px) {
 	.carousel-caption-mediaplane {
 		max-height:200px;
-		bottom: 200px !important;
+		bottom: 85px !important;
 		right: 20px;
 	}
 }
