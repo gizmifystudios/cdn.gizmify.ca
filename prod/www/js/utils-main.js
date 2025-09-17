@@ -44,13 +44,11 @@ function activateScroll() {
 			downloadBtn.classList.add("visible");
 			setTimeout(() => {
 				downloadBtn.classList.add("visible-zoomed");
-				downloadBtn.classList.remove("visible");
 			}, 250);
 		}
 		else {
-			downloadBtn.classList.add("visible");
+			downloadBtn.classList.remove("visible-zoomed");
 			setTimeout(() => {
-				downloadBtn.classList.remove("visible-zoomed");
 				downloadBtn.classList.remove("visible");
 			}, 250);
 		}
