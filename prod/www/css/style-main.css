@@ -247,7 +247,7 @@ section.banner-section .container {
 
 @media (max-width: 768px) {
 	.banner-content {
-		bottom: 0px !important;
+		top: 100% !important;
 	}
 }
 
