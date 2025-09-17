@@ -290,7 +290,7 @@ section.campaign-section {
 			"https://cdn.gizmify.ca/prod/www/img/mediaplane/features-sm.jpg" type("image/jpeg") 1x,
 			"https://cdn.gizmify.ca/prod/www/img/mediaplane/features-md.jpg" type("image/jpeg") 2x
 		);
-		background-position-x: 100%;
+		background-position: right -140px top;
 	}
 }
 
@@ -328,7 +328,7 @@ section.tiers-section {
 			"https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-sm.jpg" type("image/jpeg") 1x,
 			"https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.jpg" type("image/jpeg") 2x
 		);
-		background-size: contain;
+		background-size: cover;
 		background-repeat: no-repeat;
 	}
 }
