@@ -165,16 +165,19 @@ footer a:hover {
 	display: none;
 	opacity: 0;
 	transform: scale(0);
-	transition: all 0.5s ease;
-}
-
-#btn-download-top.shown {
-	display: inline-block;
 }
 
 #btn-download-top.visible {
+	display: inline-block;
+	opacity: 0;
+	transform: scale(0);
+}
+
+#btn-download-top.visible-zoomed {
+	display: inline-block;
 	opacity: 1;
 	transform: scale(1);
+	transition: all 0.5s ease;
 }
 
 section.goal-section {

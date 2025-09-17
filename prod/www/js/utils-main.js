@@ -41,12 +41,10 @@ function activateScroll() {
 		}
 		
 		if (document.body.scrollTop > 512 || document.documentElement.scrollTop > 512) {
-			downloadBtn.classList.add("shown");
 			downloadBtn.classList.add("visible");
 		}
 		else {
 			downloadBtn.classList.remove("visible");
-			downloadBtn.classList.remove("shown");
 		}
 	};
 }
