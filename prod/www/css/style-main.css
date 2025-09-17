@@ -335,6 +335,7 @@ section.tiers-section {
 
 .card-campaign {
 	min-height: 320px;
+	max-height: 320px;
 	background-color: #1e1e1ecc;
 	backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
