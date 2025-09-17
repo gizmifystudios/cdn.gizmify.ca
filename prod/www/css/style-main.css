@@ -113,11 +113,11 @@ img#logo-footer {
 	text-align: center;
 }
 
-.parallax-100 { min-height: 100vh; }
-.parallax-80 { min-height: 80vh; }
-.parallax-65 { min-height: 65vh; }
-.parallax-50 { min-height: 50vh; }
-.parallax-30 { min-height: 30vh; }
+.parallax-100 { min-height: 100vh; width:100%; }
+.parallax-80 { min-height: 80vh; width:100%; }
+.parallax-65 { min-height: 65vh; width:100%; }
+.parallax-50 { min-height: 50vh; width:100%; }
+.parallax-30 { min-height: 30vh; width:100%; }
 
 .section {
 	padding: 80px 20px;
