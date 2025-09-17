@@ -243,11 +243,13 @@ section.banner-section .container {
 
 .banner-content {
 	top: 0 !important;
+	bottom: auto;
 }
 
 @media (max-width: 768px) {
 	.banner-content {
-		top: 100% !important;
+		bottom: 0 !important;
+		top: auto;
 	}
 }
 
