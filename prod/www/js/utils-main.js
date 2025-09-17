@@ -43,8 +43,8 @@ function activateScroll() {
 		if (document.body.scrollTop > 512 || document.documentElement.scrollTop > 512) {
 			downloadBtn.classList.add("visible");
 			setTimeout(() => {
-				downloadBtn.classList.remove("visible");
 				downloadBtn.classList.add("visible-zoomed");
+				downloadBtn.classList.remove("visible");
 			}, 250);
 		}
 		else {
