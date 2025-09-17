@@ -45,14 +45,14 @@ function activateScroll() {
 			setTimeout(() => {
 				downloadBtn.classList.remove("visible");
 				downloadBtn.classList.add("visible-zoomed");
-			}, 0.25);
+			}, 250);
 		}
 		else {
 			downloadBtn.classList.add("visible");
 			setTimeout(() => {
 				downloadBtn.classList.remove("visible-zoomed");
 				downloadBtn.classList.remove("visible");
-			}, 0.25);
+			}, 250);
 		}
 	};
 }
