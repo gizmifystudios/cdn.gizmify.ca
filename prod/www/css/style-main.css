@@ -402,7 +402,7 @@ p.gizmify-list::before {
     padding-left: 0;
 }
 
-.gizmify-list-wrapper li {
+.gizmify-list-wrapper li, p.gizmify-list {
 	position: relative;
   	padding-left: 1.5em;
 }
