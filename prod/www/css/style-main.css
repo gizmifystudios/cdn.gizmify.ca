@@ -384,6 +384,19 @@ section.tiers-section {
 .gi-lg { width: 64px; height: 64px; }
 .gi-xl { width: 128px; height: 128px; }
 
+p.gizmify-list::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0%;
+	transform: translateY(50%);
+	width: 0.75em;
+	height: 0.75em;
+	background-image: url('https://cdn.gizmify.ca/prod/www/img/gear-green.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
 .gizmify-list-wrapper ul {
 	list-style: none;
     padding-left: 0;
