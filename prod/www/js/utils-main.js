@@ -40,17 +40,19 @@ function activateScroll() {
 			toTopBtn.style.display = "none";
 		}
 		
-		if (document.body.scrollTop > 512 || document.documentElement.scrollTop > 512) {
-			downloadBtn.classList.add("visible");
-			setTimeout(() => {
-				downloadBtn.classList.add("visible-zoomed");
-			}, 250);
-		}
-		else {
-			downloadBtn.classList.remove("visible-zoomed");
-			setTimeout(() => {
-				downloadBtn.classList.remove("visible");
-			}, 250);
+		if (downloadBtn) {
+			if (document.body.scrollTop > 512 || document.documentElement.scrollTop > 512) {
+				downloadBtn.classList.add("visible");
+				setTimeout(() => {
+					downloadBtn.classList.add("visible-zoomed");
+				}, 250);
+			}
+			else {
+				downloadBtn.classList.remove("visible-zoomed");
+				setTimeout(() => {
+					downloadBtn.classList.remove("visible");
+				}, 250);
+			}
 		}
 	};
 }
