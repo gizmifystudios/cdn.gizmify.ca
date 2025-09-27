@@ -206,6 +206,12 @@ section.client-section {
 	background-repeat: repeat;
 }
 
+section.social-section {
+	background-image: url("https://cdn.gizmify.ca/prod/www/img/general/bg-dark-blue-tile.png");
+	background-size: auto;
+	background-repeat: repeat;
+}
+
 section.versions-section {
 	background-color: #181b1e;
 }
