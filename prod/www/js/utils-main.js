@@ -104,9 +104,23 @@ function activateFeatureVideos() {
     });
 }
 
+function onTurnstileSuccess(token) {
+	document.getElementById("email-subscription").submit();
+}
+
+function activateTurnstile() {
+	document.getElementById("email-subscription").addEventListener("submit", function(e) {
+		if (!document.querySelector('[name="cf-turnstile-response"]').value) {
+			e.preventDefault();
+			turnstile.execute();
+		}
+	});
+}
+
 function activateAll() {
 	loadIcons();
 	activateTooltips();
 	activateBackToTop();
 	activateScroll();
+	activateTurnstile();
 }
