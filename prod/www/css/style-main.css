@@ -674,6 +674,7 @@ p.attribute-desc {
 
 @media (max-width: 768px) {
 	.top-alert {
+		top: -100px !important;
 		width: 75%;
 	}
 }
