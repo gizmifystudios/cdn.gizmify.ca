@@ -662,7 +662,7 @@ p.attribute-desc {
 
 .top-alert {
 	top: -60px;
-	width: 50%;
+	width: 33%;
 	left: 50%;
 	transform: translateX(-50%);
 	transition: top 0.5s ease;
