@@ -110,7 +110,7 @@ function activateFeatureVideos() {
 
 function journeyEvent(event, itemIds, itemNames, prices, callbackFunc = null) {
 	if (typeof gtag !== "function") return;
-	
+
 	if (!Array.isArray(itemIds)) itemIds = [itemIds];
 	if (!Array.isArray(itemNames)) itemNames = [itemNames];
 	if (!Array.isArray(prices)) prices = [prices];
@@ -151,10 +151,10 @@ function activateJournies() {
 	journeyProductPage();
 
 	document.querySelectorAll(".btn-choose").forEach(link => {
-		const itemId = this.dataset.itemId;
-		const itemName = this.dataset.itemName;
-		const price = parseFloat(this.dataset.price);
-		const url = this.href;
+		const itemId = link.dataset.itemId;
+		const itemName = link.dataset.itemName;
+		const price = parseFloat(link.dataset.price);
+		const url = link.href;
 		
 		link.addEventListener("click", function(e) {
 			e.preventDefault();
