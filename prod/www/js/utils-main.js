@@ -108,7 +108,7 @@ function activateFeatureVideos() {
 
 function displayAlert() {
 	const params = new URLSearchParams(window.location.search);
-	if (params.get("sent") === "1") {
+	if (params.get("sent") == "1") {
 		document.querySelectorAll(".alert").forEach(alert => {
 			alert.classList.remove("d-none");
 		});
