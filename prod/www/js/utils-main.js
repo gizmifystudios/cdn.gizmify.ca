@@ -109,8 +109,8 @@ function activateFeatureVideos() {
 function displayAlert() {
 	const params = new URLSearchParams(window.location.search);
 	if (params.get("sent") == "1") {
-		document.querySelectorAll(".alert").forEach(alert => {
-			alert.classList.remove("d-none");
+		document.querySelectorAll(".top-alert").forEach(topAlert => {
+			topAlert.classList.add('show');
 		});
 	}
 }
