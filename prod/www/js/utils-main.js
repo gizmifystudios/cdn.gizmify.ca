@@ -144,10 +144,7 @@ function journeyProductPage() {
 }
 
 function activateJournies() {
-	if (typeof gtag !== "function") {
-		console.log("Nope");
-		return;
-	}
+	if (typeof gtag !== "function") return;
 	journeyProductPage();
 
 	document.querySelectorAll(".btn-choose").forEach(link => {
@@ -164,10 +161,11 @@ function activateJournies() {
 					window.location.href = url;
 				});
 			});
-
+			
 			setTimeout(function() {
 				window.location.href = url;
 			}, 5000);
+			console.log("done")
 		});
 	});
 }
