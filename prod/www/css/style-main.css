@@ -661,10 +661,10 @@ p.attribute-desc {
 }
 
 .top-alert {
-	top: -60px;
+	top: -60px !important;
 	width: 33%;
 	left: 50%;
-	transform: translateX(-50%);
+	transform: translateX(-50%) !important;
 	transition: top 0.5s ease;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
@@ -673,5 +673,5 @@ p.attribute-desc {
 }
 
 .top-alert.show {
-	top: 0;
+	top: 0 !important;
 }
