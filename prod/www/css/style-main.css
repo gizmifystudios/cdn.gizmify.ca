@@ -672,6 +672,12 @@ p.attribute-desc {
 	border-bottom-right-radius: 12px;
 }
 
+@media (max-width: 768px) {
+	.top-alert {
+		width: 75%;
+	}
+}
+
 .top-alert.show {
 	top: 0 !important;
 }
