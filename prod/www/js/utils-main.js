@@ -103,7 +103,73 @@ function activateFeatureVideos() {
 			video.pause();
 			video.currentTime = 0;
 		});
-    });
+	});
+}
+
+// -- GA Journey -- //
+
+function journeyEvent(event, itemIds, itemNames, prices, callbackFunc = null) {
+	if (typeof gtag !== "function") return;
+	
+	if (!Array.isArray(itemIds)) itemIds = [itemIds];
+	if (!Array.isArray(itemNames)) itemNames = [itemNames];
+	if (!Array.isArray(prices)) prices = [prices];
+
+	const items = itemIds.map((id, index) => ({
+		item_id: id,
+		item_name: itemNames[index] || "Unknown Product",
+		item_category: "Software License",
+		price: prices[index] || 0,
+		quantity: 1
+	}));
+	const totalValue = prices.reduce((sum, p) => sum + (parseFloat(p) || 0), 0);
+
+	gtag("event", event, {
+		currency: "USD",
+		value: totalValue,
+		items: items,
+		event_callback: callbackFunc
+	});
+}
+
+function journeyProductPage() {
+	const chooseBtns = document.querySelectorAll(".btn-choose");
+	if (chooseBtns.length <= 0) return;
+	
+	const itemIds = Array.from(chooseBtns).map(chooseBtn => chooseBtn.dataset.itemId);
+	const itemNames = Array.from(chooseBtns).map(chooseBtn => chooseBtn.dataset.itemName);
+	const prices = Array.from(chooseBtns).map(chooseBtn => chooseBtn.dataset.price);
+
+	journeyEvent("view_item", itemIds, itemNames, prices);
+}
+
+function activateJournies() {
+	if (typeof gtag !== "function") {
+		console.log("Nope");
+		return;
+	}
+	journeyProductPage();
+
+	document.querySelectorAll(".btn-choose").forEach(link => {
+		const itemId = this.dataset.itemId;
+		const itemName = this.dataset.itemName;
+		const price = parseFloat(this.dataset.price);
+		const url = this.href;
+		
+		link.addEventListener("click", function(e) {
+			e.preventDefault();
+
+			journeyEvent("add_to_cart", itemId, itemName, price, function() {
+				journeyEvent("begin_checkout", itemId, itemName, price, function() {
+					window.location.href = url;
+				});
+			});
+
+			setTimeout(function() {
+				window.location.href = url;
+			}, 5000);
+		});
+	});
 }
 
 function activateAll() {
