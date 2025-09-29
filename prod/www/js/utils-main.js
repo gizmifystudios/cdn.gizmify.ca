@@ -159,7 +159,6 @@ function activateJournies() {
 			journeyEvent("add_to_cart", itemId, itemName, price, function() {
 				journeyEvent("begin_checkout", itemId, itemName, price, function() {
 					window.location.href = url;
-					console.log("done");
 				});
 			});
 			
