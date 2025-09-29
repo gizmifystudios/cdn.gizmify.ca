@@ -662,7 +662,14 @@ p.attribute-desc {
 
 .top-alert {
 	top: -60px;
+	width: 50%;
+	left: 50%;
+	transform: translateX(-50%);
 	transition: top 0.5s ease;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
 }
 
 .top-alert.show {
