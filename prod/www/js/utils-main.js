@@ -130,6 +130,7 @@ function journeyEvent(event, itemIds, itemNames, prices, callbackFunc = null) {
 		items: items,
 		event_callback: callbackFunc
 	});
+	console.log(items);
 }
 
 function journeyProductPage() {
@@ -165,7 +166,6 @@ function activateJournies() {
 			setTimeout(function() {
 				window.location.href = url;
 			}, 5000);
-			console.log("done")
 		});
 	});
 }
