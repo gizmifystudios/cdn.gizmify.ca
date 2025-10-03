@@ -742,12 +742,12 @@ p.attribute-desc {
     border-color: #16c50a !important;
 }
 
-.join-line {
+.join-field {
 	width:500px;
 }
 
 @media (max-width: 768px) {
-	.join-line {
+	.join-field {
 		width:100%;
 	}
 }
