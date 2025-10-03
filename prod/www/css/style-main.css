@@ -741,3 +741,13 @@ p.attribute-desc {
     background-color: #16c50a !important;
     border-color: #16c50a !important;
 }
+
+.join-line {
+	width:500px;
+}
+
+@media (max-width: 768px) {
+	.join-line {
+		width:100%;
+	}
+}
