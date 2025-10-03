@@ -683,22 +683,28 @@ p.attribute-desc {
 	top: 0 !important;
 }
 
-.benefits-btn {
-	width: 42px;
-	height: 42px;
+.btn-join {
+	height: 44px;
+	margin-right:1px;
+	border-radius: 24px 0 0 24px;
+}
+
+.btn-benefits {
+	width: 44px;
+	height: 44px;
 	border: none;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-size: 28px;
 	color: white;
-	background: linear-gradient(135deg, #0eab2f, #0ecd64);
+	background: linear-gradient(135deg, #0eab2f, #0eab2f);
 	position: relative;
 	overflow: hidden;
-	box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+	border-radius: 0 24px 24px 0;
 }
 
-.benefits-btn::before {
+.btn-benefits::before {
 	content: "";
 	position: absolute;
 	top: -100%;
