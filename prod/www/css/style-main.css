@@ -682,3 +682,55 @@ p.attribute-desc {
 .top-alert.show {
 	top: 0 !important;
 }
+
+.benefits-btn {
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 28px;
+	color: white;
+	background: linear-gradient(135deg, #2e2e2e, #474747);
+	position: relative;
+	overflow: hidden;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.benefits-btn::before {
+	content: "";
+	position: absolute;
+	top: -100%;
+	left: -100%;
+	width: 200%;
+	height: 200%;
+	background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.2) 100%);
+	transform: rotate(0deg);
+	animation: shine 2.5s infinite;
+}
+
+@keyframes shine {
+	0% { transform: translateX(-150%) rotate(0deg); }
+	50% { transform: translateX(150%) rotate(0deg); }
+	100% { transform: translateX(150%) rotate(0deg); }
+}
+
+.subscribe-section {
+	background: #1e1e1e;
+	border-radius: 12px;
+	box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+	padding: 20px;
+	margin-top: 20px;
+	color: #fff;
+}
+
+.sub-check-label {
+	cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: #16c50a !important;
+    border-color: #16c50a !important;
+}
