@@ -177,9 +177,19 @@ function activateJournies() {
 	});
 }
 
+function activateBenefitsBtn() {
+	const btn = document.querySelector("button.benefits-btn");
+	btn.addEventListener("click", function(e) {
+		const btnIcon = btn.querySelector("i");
+		btnIcon.classList.toggle("bi-chevron-down");
+		btnIcon.classList.toggle("bi-chevron-up");
+	});
+}
+
 function activateAll() {
 	loadIcons();
 	activateTooltips();
 	activateBackToTop();
 	activateScroll();
+	activateBenefitsBtn();
 }
