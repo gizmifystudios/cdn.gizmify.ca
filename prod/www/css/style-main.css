@@ -708,7 +708,7 @@ p.attribute-desc {
 	height: 200%;
 	background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.2) 100%);
 	transform: rotate(0deg);
-	animation: shine 2.5s infinite;
+	animation: shine 4s infinite;
 }
 
 @keyframes shine {
