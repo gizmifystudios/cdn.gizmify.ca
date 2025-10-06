@@ -661,7 +661,7 @@ p.attribute-desc {
 }
 
 .top-alert {
-	top: -60px !important;
+	top: -120px !important;
 	width: 33%;
 	left: 50%;
 	transform: translateX(-50%) !important;
@@ -674,7 +674,7 @@ p.attribute-desc {
 
 @media (max-width: 768px) {
 	.top-alert {
-		top: -100px !important;
+		top: -150px !important;
 		width: 75%;
 	}
 }
