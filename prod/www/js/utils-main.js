@@ -109,7 +109,12 @@ function activateFeatureVideos() {
 function displayAlert() {
 	const params = new URLSearchParams(window.location.search);
 	if (params.get("sent") == "1") {
-		document.querySelectorAll(".top-alert").forEach(topAlert => {
+		document.querySelectorAll(".top-alert.alert-success").forEach(topAlert => {
+			topAlert.classList.add('show');
+		});
+	}
+	else if (params.get("sent") == "0") {
+		document.querySelectorAll(".top-alert.alert-danger").forEach(topAlert => {
 			topAlert.classList.add('show');
 		});
 	}
