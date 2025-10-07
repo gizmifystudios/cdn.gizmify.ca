@@ -108,12 +108,12 @@ function activateFeatureVideos() {
 
 function displayAlert() {
 	const params = new URLSearchParams(window.location.search);
-	if (params.get("sent") == "1") {
+	if (params.get("success") == "1") {
 		document.querySelectorAll(".top-alert.alert-success").forEach(topAlert => {
 			topAlert.classList.add('show');
 		});
 	}
-	else if (params.get("sent") == "0") {
+	else if (params.get("success") == "0") {
 		document.querySelectorAll(".top-alert.alert-danger").forEach(topAlert => {
 			topAlert.classList.add('show');
 		});
