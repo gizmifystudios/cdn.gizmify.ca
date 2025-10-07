@@ -66,11 +66,11 @@ img#logo-footer {
 	color: #0eab2f !important;
 }
 
-.link-green {
+.link-green, article.blog-article a {
 	color: #0eab2f !important;
 }
 
-.link-green:hover {
+.link-green:hover, article.blog-article a:hover {
 	color: #0c942a !important;
 }
 
