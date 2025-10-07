@@ -182,12 +182,18 @@ function activateJournies() {
 	});
 }
 
-function activateBenefitsBtn() {
-	const btn = document.querySelector("button.btn-benefits");
-	btn.addEventListener("click", function(e) {
-		const btnIcon = btn.querySelector("i");
-		btnIcon.classList.toggle("bi-chevron-down");
-		btnIcon.classList.toggle("bi-chevron-up");
+function activateUnsubAllButton() {
+	const allBox = document.getElementById('all');
+	const options = document.querySelectorAll('.sub-feature');
+
+	allBox.addEventListener('change', () => {
+		if (allBox.checked) options.forEach(opt => opt.checked = false);
+	});
+
+	options.forEach(opt => {
+		opt.addEventListener('change', () => {
+			if (opt.checked) allBox.checked = false;
+		});
 	});
 }
 
@@ -196,5 +202,4 @@ function activateAll() {
 	activateTooltips();
 	activateBackToTop();
 	activateScroll();
-	activateBenefitsBtn();
 }
