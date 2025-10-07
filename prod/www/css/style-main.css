@@ -268,6 +268,12 @@ section.who-its-for-section {
 	background-repeat: repeat;
 }
 
+section.blog {
+	background-image: url("https://cdn.gizmify.ca/prod/www/img/general/bg-dark-gray-tile.png");
+	background-size: auto;
+	background-repeat: repeat;
+}
+
 section.campaign-section {
 	background-image: url("https://cdn.gizmify.ca/prod/www/img/mediaplane/features-md.jpg");
 	background-image: -webkit-image-set(
