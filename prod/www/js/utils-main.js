@@ -238,8 +238,8 @@ function activateVideoPlayer(streams) {
 
 	function selectInitialResolution() {
 		const width = window.innerWidth;
-		if (width >= 1280) return 1080;
-		if (width >= 720) return 720;
+		if (width >= 1200) return 1080;
+		if (width >= 768) return 720;
 		return 480;
 	}
 
@@ -347,9 +347,11 @@ function activateVideoPlayer(streams) {
 	const observer = new IntersectionObserver(
 		entries => {
 			entries.forEach(entry => {
-				if (!inControl) {
-					if (entry.isIntersecting) video.play().catch(()=>{});
-					else video.pause();
+				if (entry.isIntersecting) {
+					if (!inControl) video.play().catch(()=>{});
+				}
+				else {
+					video.pause();
 				}
 			});
 		},
