@@ -720,12 +720,13 @@ p.attribute-desc {
 }
 
 .player-section {
+	background-color:#080808;
 	padding: 80px 20px;
 }
 
 @media (max-width: 768px) {
 	.player-section {
-		padding: 0px;
+		padding: 4px;
 	}
 }
 
@@ -750,10 +751,8 @@ p.attribute-desc {
 @media (max-width: 768px) {
 	.player {
 		width:100%;
-		border-radius: 0px;
+		border-radius: 12px;
 	}
-
-	
 }
 
 .player video {
@@ -829,6 +828,7 @@ p.attribute-desc {
 	flex-direction: column;
 	gap: 6px;
 	z-index: 20;
+	min-width: 120px;
 }
 .player-settings-menu select {
 	background: #111;
