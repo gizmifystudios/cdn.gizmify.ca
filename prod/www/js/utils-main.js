@@ -260,7 +260,7 @@ function activateVideoPlayer(streams) {
 
 	initRes = selectInitialResolution();
 	loadStream(initRes);
-	resolutionSelect.select.value = res;
+	resolutionSelect.select.value = initRes;
 
 	playPauseBtn.onclick = togglePlay;
 	overlayPlay.onclick = togglePlay;
