@@ -285,23 +285,23 @@ function activateVideoPlayer(streams) {
 	};
 
 	video.muted = true;
-	toggleIcon(iconSpeaker, 'fa-volume-xmark', 'fa-volume');
+	toggleIcon(iconSpeaker, 'fa-volume-xmark', 'fa-volume-high');
 	volume.oninput = () => {
 		video.volume = volume.value;
 		if (video.volume === 0) {
 			video.muted = true;
-			toggleIcon(iconSpeaker, 'fa-volume-xmark', 'fa-volume');
+			toggleIcon(iconSpeaker, 'fa-volume-xmark', 'fa-volume-high');
 		}
 		else {
 			video.muted = false;
-			toggleIcon(iconSpeaker, 'fa-volume', 'fa-volume-xmark');
+			toggleIcon(iconSpeaker, 'fa-volume-high', 'fa-volume-xmark');
 		}
 	};
 
 	speaker.onclick = () => {
 		video.muted = !video.muted;
-		if (video.muted) toggleIcon(iconSpeaker, 'fa-volume-xmark', 'fa-volume');
-		else toggleIcon(iconSpeaker, 'fa-volume', 'fa-volume-xmark');
+		if (video.muted) toggleIcon(iconSpeaker, 'fa-volume-xmark', 'fa-volume-high');
+		else toggleIcon(iconSpeaker, 'fa-volume-high', 'fa-volume-xmark');
 	};
 
 	settingsBtn.onclick = () => {
