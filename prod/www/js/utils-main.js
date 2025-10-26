@@ -245,6 +245,7 @@ function activateVideoPlayer(streams) {
 
 	function loadStream(res) {
 		currentResolution = res;
+		resolutionSelect.select.value = String(res);
 		if (hls) {
 			hls.destroy();
 		}
