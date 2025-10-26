@@ -258,9 +258,9 @@ function activateVideoPlayer(streams) {
 		}
 	}
 
-	const initRes = selectInitialResolution()
+	initRes = selectInitialResolution();
 	loadStream(initRes);
-	resolutionSelect.select.value = String(initRes);
+	resolutionSelect.select.value = res;
 
 	playPauseBtn.onclick = togglePlay;
 	overlayPlay.onclick = togglePlay;
