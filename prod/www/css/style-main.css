@@ -130,9 +130,11 @@ img#logo-footer {
 }
 
 .card {
-	background: #1e1e1e;
+	background: #080808cc;
 	color: #ddd;
 	border-radius: 20px;
+	backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 	box-shadow: 0 8px 24px rgba(0,0,0,0.5);
 }
 
@@ -351,7 +353,7 @@ section.tiers-section {
 .card-campaign {
 	min-height: 320px;
 	max-height: 320px;
-	background-color: #1e1e1ecc;
+	background-color: #060606cc;
 	backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 	border: 0;
