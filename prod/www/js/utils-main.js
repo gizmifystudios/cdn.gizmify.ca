@@ -245,7 +245,6 @@ function activateVideoPlayer(streams) {
 
 	function loadStream(res) {
 		currentResolution = res;
-		resolutionSelect.select.value = String(res);
 		if (hls) {
 			hls.destroy();
 		}
@@ -259,7 +258,9 @@ function activateVideoPlayer(streams) {
 		}
 	}
 
-	loadStream(selectInitialResolution());
+	const initRes = selectInitialResolution()
+	loadStream(initRes);
+	resolutionSelect.select.value = String(initRes);
 
 	playPauseBtn.onclick = togglePlay;
 	overlayPlay.onclick = togglePlay;
