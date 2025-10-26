@@ -219,8 +219,11 @@ function activateVideoPlayer(streams) {
 	const resolutionSelect = document.getElementById('resolutionSelect');
 	const speedSelect = document.getElementById('speedSelect');
 
+	const iconPlayPause = document.querySelector('#playPause i')
+	
 	let hls;
 	let currentResolution = 480;
+	let inControl = false;
 
 	function togglePlay() {
 		if (video.paused) {
@@ -229,6 +232,7 @@ function activateVideoPlayer(streams) {
 		else {
 			video.pause();
 		}
+		inControl = true;
 	}
 
 	function selectInitialResolution() {
@@ -260,12 +264,14 @@ function activateVideoPlayer(streams) {
 	video.onclick = togglePlay;
 
 	video.addEventListener('play', () => {
-		playPauseBtn.textContent = '⏸️';
+		iconPlayPause.classList.remove('fa-play');
+		iconPlayPause.classList.add('fa-pause');
 		overlayPlay.classList.add('hidden');
 	});
 
 	video.addEventListener('pause', () => {
-		playPauseBtn.textContent = '▶️';
+		iconPlayPause.classList.remove('fa-pause');
+		iconPlayPause.classList.add('fa-play');
 		overlayPlay.classList.remove('hidden');
 	});
 
@@ -341,8 +347,10 @@ function activateVideoPlayer(streams) {
 	const observer = new IntersectionObserver(
 		entries => {
 			entries.forEach(entry => {
-				if (entry.isIntersecting) video.play().catch(()=>{});
-				else video.pause();
+				if (!inControl) {
+					if (entry.isIntersecting) video.play().catch(()=>{});
+					else video.pause();
+				}
 			});
 		},
 		{ threshold:0.75 }
