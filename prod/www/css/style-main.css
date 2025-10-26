@@ -721,6 +721,12 @@ p.attribute-desc {
 	padding: 80px 20px;
 }
 
+@media (max-width: 768px) {
+	.player-section {
+		padding: 0px;
+	}
+}
+
 .player-container {
 	display: flex;
 	align-items: center;
@@ -745,9 +751,7 @@ p.attribute-desc {
 		border-radius: 0px;
 	}
 
-	.player-section {
-		padding: 0px;
-	}
+	
 }
 
 .player video {
