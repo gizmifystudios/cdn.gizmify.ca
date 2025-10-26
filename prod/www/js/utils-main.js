@@ -197,6 +197,139 @@ function activateUnsubAllButton() {
 	});
 }
 
+// -- Video controls -- //
+
+const streams = {
+	1080: 'https://cdn.gizmify.ca/prod/video/mediaplane-trailer/1080p/play.m3u8',
+	720:  'https://cdn.gizmify.ca/prod/video/mediaplane-trailer/720p/play.m3u8',
+	480:  'https://cdn.gizmify.ca/prod/video/mediaplane-trailer/480p/play.m3u8'
+};
+
+function activateVideoPlayer(streams) {
+	const video = document.getElementById('video');
+	const player = document.getElementById('player');
+	const playPauseBtn = document.getElementById('playPause');
+	const seek = document.getElementById('seek');
+	const volume = document.getElementById('volume');
+	const overlayPlay = document.getElementById('overlayPlay');
+	const speaker = document.getElementById('speaker');
+	const settingsBtn = document.getElementById('settingsBtn');
+	const settingsMenu = document.getElementById('settingsMenu');
+	const resolutionSelect = document.getElementById('resolutionSelect');
+	const speedSelect = document.getElementById('speedSelect');
+
+	let hls;
+	let currentResolution = 480;
+
+	function togglePlay() {
+		if (video.paused) {
+			video.play();
+		}
+		else {
+			video.pause();
+		}
+	}
+
+	function selectInitialResolution() {
+		const width = window.innerWidth;
+		if (width >= 1280) return 1080;
+		if (width >= 720) return 720;
+		return 480;
+	}
+
+	function loadStream(res) {
+		currentResolution = res;
+		if (hls) {
+			hls.destroy();
+		}
+		if (Hls.isSupported()) {
+			hls = new Hls();
+			hls.loadSource(streams[res]);
+			hls.attachMedia(video);
+		}
+		else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+			video.src = streams[res];
+		}
+	}
+
+	loadStream(selectInitialResolution());
+
+	playPauseBtn.onclick = togglePlay;
+	overlayPlay.onclick = togglePlay;
+	video.onclick = togglePlay;
+
+	video.addEventListener('play', () => {
+		playPauseBtn.textContent = '⏸️';
+		overlayPlay.classList.add('hidden');
+	});
+
+	video.addEventListener('pause', () => {
+		playPauseBtn.textContent = '▶️';
+		overlayPlay.classList.remove('hidden');
+	});
+
+	video.addEventListener('timeupdate', () => {
+		seek.value = (video.currentTime / video.duration) * 100 || 0;
+	});
+
+	seek.oninput = () => {
+		video.currentTime = (seek.value / 100) * video.duration;
+	};
+
+	video.muted = true;
+	speaker.textContent = '🔇';
+	volume.oninput = () => {
+		video.volume = volume.value;
+		if (video.volume === 0) {
+			video.muted = true;
+			speaker.textContent = '🔇';
+		}
+		else {
+			video.muted = false;
+			speaker.textContent = '🔊';
+		}
+	};
+
+	speaker.onclick = () => {
+		video.muted = !video.muted;
+		speaker.textContent = video.muted ? '🔇' : '🔊';
+	};
+
+	settingsBtn.onclick = () => {
+		settingsMenu.classList.toggle('show');
+	};
+
+	resolutionSelect.onchange = e => {
+		const res = parseInt(e.target.value);
+		const wasPlaying = !video.paused;
+		loadStream(res);
+		if (wasPlaying) video.play().catch(()=>{});
+	};
+
+	speedSelect.onchange = e => {
+		video.playbackRate = parseFloat(e.target.value);
+	};
+
+	document.addEventListener('click', e => {
+		if (!settingsBtn.contains(e.target) && !settingsMenu.contains(e.target)) {
+			settingsMenu.classList.remove('show');
+		}
+	});
+
+	// Auto play/pause on scroll
+	const observer = new IntersectionObserver(
+		entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) video.play().catch(()=>{});
+				else video.pause();
+			});
+		},
+		{ threshold:0.75 }
+	);
+	observer.observe(player);
+}
+
+
 function activateAll() {
 	loadIcons();
 	activateTooltips();

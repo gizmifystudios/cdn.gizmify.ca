@@ -716,3 +716,105 @@ p.attribute-desc {
 		width:100%;
 	}
 }
+
+.player-container {
+	min-height: 200vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.player {
+	position: relative;
+	width: 80%;
+	max-width: 960px;
+	aspect-ratio: 16/9;
+	background: #111;
+	border-radius: 16px;
+	overflow: hidden;
+	box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+	cursor: pointer;
+}
+
+.player video {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.player-controls {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: linear-gradient(transparent, rgba(0,0,0,0.7));
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 10px;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+.player:hover .player-controls { opacity: 1; }
+
+.player button, .player input[type=range] {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.player button { color: white; font-size: 1.2rem; }
+
+.player input[type=range] {
+	flex-grow: 1;
+	accent-color: #0eab2f;
+}
+
+.player-volume-container {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 15%;
+}
+
+.player-volume { width: 100%; }
+
+.player-overlay-play {
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80px; height: 80px;
+	border-radius: 50%;
+	background: rgba(0,0,0,0.5);
+	display: flex; align-items: center; justify-content: center;
+	cursor: pointer;
+	transition: opacity 0.3s;
+}
+.player-overlay-play svg { fill: white; width: 40px; height: 40px; }
+.player-overlay-play.hidden { opacity: 0; pointer-events: none; }
+
+.player-settings-container {
+	margin-left: auto;
+	position: relative;
+}
+.player-settings-menu {
+	position: absolute;
+	bottom: 40px; right: 0;
+	background: #1a1a1a;
+	border: 1px solid #333;
+	border-radius: 8px;
+	padding: 8px;
+	display: none;
+	flex-direction: column;
+	gap: 6px;
+	z-index: 20;
+}
+.player-settings-menu select {
+	background: #111;
+	color: white;
+	border: 1px solid #333;
+	border-radius: 6px;
+	padding: 4px;
+}
+.player-settings-menu.show { display: flex; }
