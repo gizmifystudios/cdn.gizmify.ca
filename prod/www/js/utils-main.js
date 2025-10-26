@@ -218,6 +218,7 @@ function activateVideoPlayer(streams) {
 	const settingsMenu = document.getElementById('settingsMenu');
 	const resolutionSelect = document.getElementById('resolutionSelect');
 	const speedSelect = document.getElementById('speedSelect');
+	const videoContainer = document.getElementById('videoContainer');
 
 	let hls;
 	let currentResolution = 480;
@@ -319,7 +320,7 @@ function activateVideoPlayer(streams) {
 
 	function toggleFullscreen() {
 		if (!document.fullscreenElement) {
-			container.requestFullscreen?.() || container.webkitRequestFullscreen?.();
+			videoContainer.requestFullscreen?.() || videoContainer.webkitRequestFullscreen?.();
 			fullscreenBtn.textContent = '🡼';
 		}
 		else {
@@ -330,7 +331,7 @@ function activateVideoPlayer(streams) {
 
     fullscreenBtn.addEventListener('click', toggleFullscreen);
 
-    container.addEventListener('dblclick', toggleFullscreen);
+    videoContainer.addEventListener('dblclick', toggleFullscreen);
 
     document.addEventListener('fullscreenchange', () => {
 		if (!document.fullscreenElement) {
