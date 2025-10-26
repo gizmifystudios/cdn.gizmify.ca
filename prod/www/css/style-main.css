@@ -718,7 +718,6 @@ p.attribute-desc {
 }
 
 .player-container {
-	min-height: 200vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -727,7 +726,7 @@ p.attribute-desc {
 .player {
 	position: relative;
 	width: 80%;
-	max-width: 960px;
+	max-width: 1200px;
 	aspect-ratio: 16/9;
 	background: #111;
 	border-radius: 16px;

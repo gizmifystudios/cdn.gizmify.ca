@@ -211,6 +211,7 @@ function activateVideoPlayer(streams) {
 	const playPauseBtn = document.getElementById('playPause');
 	const seek = document.getElementById('seek');
 	const volume = document.getElementById('volume');
+	const fullscreenBtn = document.getElementById('fullscreenBtn');
 	const overlayPlay = document.getElementById('overlayPlay');
 	const speaker = document.getElementById('speaker');
 	const settingsBtn = document.getElementById('settingsBtn');
@@ -316,7 +317,27 @@ function activateVideoPlayer(streams) {
 		}
 	});
 
-	// Auto play/pause on scroll
+	function toggleFullscreen() {
+		if (!document.fullscreenElement) {
+			container.requestFullscreen?.() || container.webkitRequestFullscreen?.();
+			fullscreenBtn.textContent = '🡼';
+		}
+		else {
+			document.exitFullscreen?.() || document.webkitExitFullscreen?.();
+			fullscreenBtn.textContent = '⛶';
+		}
+    }
+
+    fullscreenBtn.addEventListener('click', toggleFullscreen);
+
+    container.addEventListener('dblclick', toggleFullscreen);
+
+    document.addEventListener('fullscreenchange', () => {
+		if (!document.fullscreenElement) {
+			fullscreenBtn.textContent = '⛶';
+		}
+    });
+
 	const observer = new IntersectionObserver(
 		entries => {
 			entries.forEach(entry => {
