@@ -717,6 +717,10 @@ p.attribute-desc {
 	}
 }
 
+.player-section {
+	padding: 80px 20px;
+}
+
 .player-container {
 	display: flex;
 	align-items: center;
@@ -733,6 +737,17 @@ p.attribute-desc {
 	overflow: hidden;
 	box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+	.player {
+		width:100%;
+		border-radius: 0px;
+	}
+
+	.player-section {
+		padding: 0px;
+	}
 }
 
 .player video {
