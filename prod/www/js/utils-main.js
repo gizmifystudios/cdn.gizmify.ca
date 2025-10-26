@@ -199,12 +199,6 @@ function activateUnsubAllButton() {
 
 // -- Video controls -- //
 
-const streams = {
-	1080: 'https://cdn.gizmify.ca/prod/video/mediaplane-trailer/1080p/play.m3u8',
-	720:  'https://cdn.gizmify.ca/prod/video/mediaplane-trailer/720p/play.m3u8',
-	480:  'https://cdn.gizmify.ca/prod/video/mediaplane-trailer/480p/play.m3u8'
-};
-
 function activateVideoPlayer(streams) {
 	const video = document.getElementById('video');
 	const player = document.getElementById('player');
@@ -220,10 +214,17 @@ function activateVideoPlayer(streams) {
 	const speedSelect = document.getElementById('speedSelect');
 
 	const iconPlayPause = document.querySelector('#playPause i')
+	const iconSpeaker = document.querySelector('#speaker i')
+	const iconFullScreen = document.querySelector('#fullscreenBtn i')
 	
 	let hls;
 	let currentResolution = 480;
 	let inControl = false;
+
+	function toggleIcon(element, addClass, removeClass) {
+		element.classList.remove(removeClass);
+		element.classList.add(addClass);
+	}
 
 	function togglePlay() {
 		if (video.paused) {
@@ -264,14 +265,12 @@ function activateVideoPlayer(streams) {
 	video.onclick = togglePlay;
 
 	video.addEventListener('play', () => {
-		iconPlayPause.classList.remove('fa-play');
-		iconPlayPause.classList.add('fa-pause');
+		toggleIcon(iconPlayPause, 'fa-pause', 'fa-play');
 		overlayPlay.classList.add('hidden');
 	});
 
 	video.addEventListener('pause', () => {
-		iconPlayPause.classList.remove('fa-pause');
-		iconPlayPause.classList.add('fa-play');
+		toggleIcon(iconPlayPause, 'fa-play', 'fa-pause');
 		overlayPlay.classList.remove('hidden');
 	});
 
@@ -284,22 +283,23 @@ function activateVideoPlayer(streams) {
 	};
 
 	video.muted = true;
-	speaker.textContent = '🔇';
+	toggleIcon(iconSpeaker, 'fa-volume-xmark', 'fa-volume');
 	volume.oninput = () => {
 		video.volume = volume.value;
 		if (video.volume === 0) {
 			video.muted = true;
-			speaker.textContent = '🔇';
+			toggleIcon(iconSpeaker, 'fa-volume-xmark', 'fa-volume');
 		}
 		else {
 			video.muted = false;
-			speaker.textContent = '🔊';
+			toggleIcon(iconSpeaker, 'fa-volume', 'fa-volume-xmark');
 		}
 	};
 
 	speaker.onclick = () => {
 		video.muted = !video.muted;
-		speaker.textContent = video.muted ? '🔇' : '🔊';
+		if (video.muted) toggleIcon(iconSpeaker, 'fa-volume-xmark', 'fa-volume');
+		else toggleIcon(iconSpeaker, 'fa-volume', 'fa-volume-xmark');
 	};
 
 	settingsBtn.onclick = () => {
@@ -326,11 +326,11 @@ function activateVideoPlayer(streams) {
 	function toggleFullscreen() {
 		if (!document.fullscreenElement) {
 			player.requestFullscreen?.() || player.webkitRequestFullscreen?.();
-			fullscreenBtn.textContent = '🡼';
+			toggleIcon(iconFullScreen, 'fa-compress', 'fa-expand');
 		}
 		else {
 			document.exitFullscreen?.() || document.webkitExitFullscreen?.();
-			fullscreenBtn.textContent = '⛶';
+			toggleIcon(iconFullScreen, 'fa-expand', 'fa-compress');
 		}
     }
 
@@ -340,7 +340,7 @@ function activateVideoPlayer(streams) {
 
     document.addEventListener('fullscreenchange', () => {
 		if (!document.fullscreenElement) {
-			fullscreenBtn.textContent = '⛶';
+			toggleIcon(iconFullScreen, 'fa-expand', 'fa-compress');
 		}
     });
 
