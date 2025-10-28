@@ -412,9 +412,8 @@ function activateAnalytics() {
 function sendHelpful(isHelpful='1') {
 	const form = document.getElementById('helpful-form');
 	const formData = new FormData(form);
-	formData.set('yes', isHelpful);
 
-	fetch(form.action, {
+	fetch(form.action+"?yes="+isHelpful, {
 		method: 'POST', body: formData
 	})
 	.then(resp => resp.json())
