@@ -663,7 +663,7 @@ a.toc-btn {
 }
 
 a.toc-helpful-yes, a.toc-helpful-no {
-	min-width: 50px;
+	min-width: 100px;
 }
 
 p.attribute-desc {

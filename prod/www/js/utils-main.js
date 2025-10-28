@@ -425,9 +425,7 @@ function sendHelpful(isHelpful='1') {
 		const helpfulText = document.querySelectorAll('.helpful-widget h5');
 		helpfulText.forEach(text => { text.textContent = "✅ Thank you for your feedback!"; });
 	})
-	.catch(error => {
-		console.log("Failed to send feedback");
-	});
+	.catch(error => {});
 }
 
 function activateHelpful() {
