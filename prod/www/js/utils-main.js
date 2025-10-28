@@ -390,7 +390,7 @@ function activateAnalytics() {
 	else {
 		let shown = false;
 		window.addEventListener('scroll', () => {
-			if (!shown && window.scrollY > 800) {
+			if (!shown && window.scrollY > 600) {
 				banner.classList.add('show');
 				shown = true;
 			}
