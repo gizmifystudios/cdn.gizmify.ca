@@ -662,6 +662,10 @@ a.toc-btn {
 	min-width: 200px;
 }
 
+a.toc-helpful-yes, a.toc-helpful-no {
+	min-width: 50px;
+}
+
 p.attribute-desc {
 	padding-left: 1em;
 }

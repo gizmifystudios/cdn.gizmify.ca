@@ -409,6 +409,46 @@ function activateAnalytics() {
 	}
 }
 
+function sendHelpful(isHelpful='1') {
+	const form = document.getElementById('helpful-form');
+	const formData = new FormData(form);
+	formData.set('yes', isHelpful);
+
+	fetch(form.action, {
+		method: 'POST', body: formData
+	})
+	.then(resp => resp.json())
+	.then(data => {
+		const helpfulLinks = document.querySelectorAll('.helpful-widget a');
+		helpfulLinks.forEach(link => { link.classList.add('d-none'); });
+		
+		const helpfulText = document.querySelectorAll('.helpful-widget h5');
+		helpfulText.forEach(text => { text.textContent = "✅ Thank you for your feedback!"; });
+	})
+	.catch(error => {
+		console.log("Failed to send feedback");
+	});
+}
+
+function activateHelpful() {
+	const helpfulYes = document.querySelectorAll('.toc-helpful-yes');
+	const helpfulNo = document.querySelectorAll('.toc-helpful-no');
+
+	helpfulYes.forEach(btn => {
+		btn.addEventListener('click', function (event) {
+			event.preventDefault();
+			sendHelpful(isHelpful='1');
+		});
+	});
+
+	helpfulNo.forEach(btn => {
+		btn.addEventListener('click', function (event) {
+			event.preventDefault();
+			sendHelpful(isHelpful='0');
+		});
+	});
+}
+
 
 function activateAll() {
 	loadIcons();
