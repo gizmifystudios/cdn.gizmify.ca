@@ -110,6 +110,10 @@ img#logo-footer {
 	border-radius: 24px;
 }
 
+.btn-outline-light {
+	border-radius: 24px;
+}
+
 .parallax {
 	background-attachment: fixed;
 	background-size: cover;
