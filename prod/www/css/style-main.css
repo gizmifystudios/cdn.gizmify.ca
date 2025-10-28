@@ -106,11 +106,7 @@ img#logo-footer {
 	background-color: #0b972a !important;
 }
 
-.btn-success {
-	border-radius: 24px;
-}
-
-.btn-outline-light {
+.btn-success, .btn-outline-light, .btn-danger {
 	border-radius: 24px;
 }
 
