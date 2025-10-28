@@ -866,7 +866,7 @@ p.attribute-desc {
 
 @media (max-width: 768px) {
 	#cookieBanner {
-		left: 20px;
+		left: 0px;
 	}
 }
 
