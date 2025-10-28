@@ -362,10 +362,58 @@ function activateVideoPlayer(streams) {
 	observer.observe(player);
 }
 
+// -- Analytics -- //
+
+function initAnalytics() {
+	if (!window.gaInitialized) {
+		window.gaInitialized = true;
+		const script = document.createElement('script');
+		script.async = true;
+		script.src = "https://www.googletagmanager.com/gtag/js?id=G-Q602WFV2DJ";
+		document.head.appendChild(script);
+
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		window.gtag = gtag;
+		gtag('js', new Date());
+		gtag('config', 'G-Q602WFV2DJ');
+	}
+}
+
+function activateAnalytics() {
+	const banner = document.getElementById('cookieBanner');
+	const consent = localStorage.getItem('cookieConsent');
+	
+	if (consent === 'agreed') {
+		initAnalytics();
+	}
+	else {
+		let shown = false;
+		window.addEventListener('scroll', () => {
+			if (!shown && window.scrollY > 800) {
+				banner.classList.add('show');
+				shown = true;
+			}
+		});
+	
+		document.getElementById('acceptCookies').addEventListener('click', () => {
+			localStorage.setItem('cookieConsent', 'agreed');
+			banner.classList.remove('show');
+			initAnalytics();
+		});
+	
+		document.getElementById('rejectCookies').addEventListener('click', () => {
+			localStorage.setItem('cookieConsent', 'essential');
+			banner.classList.remove('show');
+		});
+	}
+}
+
 
 function activateAll() {
 	loadIcons();
 	activateTooltips();
 	activateBackToTop();
 	activateScroll();
+	activateAnalytics();
 }
