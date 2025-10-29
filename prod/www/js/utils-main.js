@@ -24,13 +24,13 @@ function backToTop() {
 }
 
 function activateBackToTop() {
-	let toTopBtn = document.getElementById("backToTop");
+	const toTopBtn = document.getElementById("backToTop");
 	toTopBtn.addEventListener("click", backToTop);
 }
 
 function activateScroll() {
-	let toTopBtn = document.getElementById("backToTop");
-	let downloadBtn = document.getElementById("btn-download-top");
+	const toTopBtn = document.getElementById("backToTop");
+	const downloadBtn = document.getElementById("btn-download-top");
 	
 	window.onscroll = function() {
 		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -394,6 +394,7 @@ function activateAnalytics() {
 	let shown = false;
 	window.addEventListener('scroll', () => {
 		if (!shown && window.scrollY > 600) {
+			banner.classList.remove('d-none');
 			banner.classList.add('show');
 			shown = true;
 		}
@@ -402,12 +403,14 @@ function activateAnalytics() {
 	document.getElementById('acceptCookies').addEventListener('click', () => {
 		localStorage.setItem('cookieConsent', 'agreed');
 		banner.classList.remove('show');
+		banner.classList.add('d-none');
 		initAnalytics();
 	});
 
 	document.getElementById('rejectCookies').addEventListener('click', () => {
 		localStorage.setItem('cookieConsent', 'essential');
 		banner.classList.remove('show');
+		banner.classList.add('d-none');
 	});
 }
 
