@@ -386,27 +386,29 @@ function activateAnalytics() {
 	
 	if (consent === 'agreed') {
 		initAnalytics();
+		return;
 	}
-	else {
-		let shown = false;
-		window.addEventListener('scroll', () => {
-			if (!shown && window.scrollY > 600) {
-				banner.classList.add('show');
-				shown = true;
-			}
-		});
 	
-		document.getElementById('acceptCookies').addEventListener('click', () => {
-			localStorage.setItem('cookieConsent', 'agreed');
-			banner.classList.remove('show');
-			initAnalytics();
-		});
-	
-		document.getElementById('rejectCookies').addEventListener('click', () => {
-			localStorage.setItem('cookieConsent', 'essential');
-			banner.classList.remove('show');
-		});
-	}
+	if (consent === 'essential') return;
+
+	let shown = false;
+	window.addEventListener('scroll', () => {
+		if (!shown && window.scrollY > 600) {
+			banner.classList.add('show');
+			shown = true;
+		}
+	});
+
+	document.getElementById('acceptCookies').addEventListener('click', () => {
+		localStorage.setItem('cookieConsent', 'agreed');
+		banner.classList.remove('show');
+		initAnalytics();
+	});
+
+	document.getElementById('rejectCookies').addEventListener('click', () => {
+		localStorage.setItem('cookieConsent', 'essential');
+		banner.classList.remove('show');
+	});
 }
 
 function sendHelpful(isHelpful='1') {
