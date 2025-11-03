@@ -451,6 +451,15 @@ function activateHelpful() {
 	});
 }
 
+function activateVersionLinks() {
+	const verLinks = document.querySelectorAll('.accordion-item button a');
+	verLinks.forEach(link => {
+		link.addEventListener('click', function (event) {
+			event.stopPropagation();
+		});
+	});
+}
+
 
 function activateAll() {
 	loadIcons();
