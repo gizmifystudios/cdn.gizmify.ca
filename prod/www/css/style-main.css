@@ -891,8 +891,15 @@ p.attribute-desc {
 }
 
 .blog-video-frame iframe {
-	width: 560px;
+	width: 800px;
 	aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 992px) {
+	.blog-video-frame iframe {
+		width: 560px;
+		aspect-ratio: 16 / 9;
+	}
 }
 
 @media (max-width: 768px) {
