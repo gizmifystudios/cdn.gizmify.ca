@@ -79,6 +79,13 @@ article.blog-article h2 { margin-top: 3rem !important; }
 article.blog-article h3 { margin-top: 2rem !important; }
 article.blog-article h4 { margin-top: 1.5rem !important; }
 
+article.blog-article blockquote {
+	border-left:4px solid #0eab2f;
+	padding-left:12px;
+	margin:24px 0;
+	font-style: italic;
+}
+
 .link-facebook { color: #0aa550; }
 .link-twitter {	color: #0aa550; }
 .link-linkedin { color: #0aa550; }
