@@ -110,6 +110,13 @@ img#logo-footer {
 	border-radius: 24px;
 }
 
+.btn-share-social {
+	color:white;
+	width:40px;
+	height:40px;
+	border-radius:50%;
+}
+
 .parallax {
 	background-attachment: fixed;
 	background-size: cover;
@@ -868,4 +875,16 @@ p.attribute-desc {
 	display: flex;
 	opacity: 1;
 	transform: translateY(0);
+}
+
+.blog-video-frame iframe {
+	width: 560px;
+	height: 315px;
+}
+
+@media (max-width: 768px) {
+	.blog-video-frame iframe {
+		width: 100%;
+		height: auto;
+	}
 }
