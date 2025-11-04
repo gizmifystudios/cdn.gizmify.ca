@@ -117,6 +117,19 @@ img#logo-footer {
 	border-radius:50%;
 }
 
+.social-share-floating {
+	top: 40%;
+	right: 28px;
+	z-index: 1000;
+}
+
+@media (max-width: 768px) {
+	.social-share-floating {
+		top: 15%;
+		right: 10px;
+	}
+}
+
 .parallax {
 	background-attachment: fixed;
 	background-size: cover;
@@ -879,12 +892,11 @@ p.attribute-desc {
 
 .blog-video-frame iframe {
 	width: 560px;
-	height: 315px;
+	aspect-ratio: 16 / 9;
 }
 
 @media (max-width: 768px) {
 	.blog-video-frame iframe {
 		width: 100%;
-		height: auto;
 	}
 }
