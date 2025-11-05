@@ -147,7 +147,7 @@ article.blog-article blockquote {
 @media (max-width: 768px) {
 	.social-share-floating {
 		top: 15%;
-		right: 10px;
+		right: 4px;
 	}
 }
 
