@@ -921,3 +921,36 @@ p.attribute-desc {
 		width: 100%;
 	}
 }
+
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	gap: 25px;
+	width: 100%;
+	max-width: 1200px;
+}
+.gallery-thumb {
+	position: relative;
+	border-radius: 12px;
+	overflow: hidden;
+	cursor: pointer;
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.gallery-thumb img {
+	width: 100%;
+	display: block;
+}
+.gallery-thumb:hover {
+	transform: scale(1.05);
+	box-shadow: 0px 10px 22px rgba(0, 0, 0, 0.4);
+}
+.gallery-thumb-title {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 12px;
+	background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+	font-size: 15px;
+	font-weight: 500;
+}
