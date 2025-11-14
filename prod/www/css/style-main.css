@@ -954,3 +954,13 @@ p.attribute-desc {
 	font-size: 15px;
 	font-weight: 500;
 }
+
+.thumbnail-grid img {
+	max-width: 172px;
+}
+
+@media (max-width: 768px) {
+	.thumbnail-grid img {
+		max-width: 100%;
+	}
+}
