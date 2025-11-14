@@ -89,7 +89,7 @@ article.blog-article h2 { margin-top: 3rem !important; font-weight:bold; }
 article.blog-article h3 { margin-top: 2rem !important; font-weight:bold; }
 article.blog-article h4 { margin-top: 1.5rem !important; font-weight:bold; }
 
-article.blog-article blockquote {
+article.blog-article blockquote, blockquote.bq-green {
 	border-left:4px solid #0eab2f;
 	padding-left:12px;
 	margin:24px 0;
