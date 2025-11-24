@@ -73,7 +73,7 @@ function activateScroll() {
 		}
 
 		if (banner) {
-			if ((document.body.scrollTop > 512 || document.documentElement.scrollTop > 512)) {
+			if ((document.body.scrollTop > 256 || document.documentElement.scrollTop > 256)) {
 				if (promoVisible) {
 					promoVisible = false;
 					banner.classList.remove('show');
