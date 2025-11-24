@@ -916,7 +916,7 @@ p.attribute-desc {
 
 #promoBanner {
 	position: fixed;
-	top: 110px;
+	top: 115px;
 	margin: 0px 10px;
 	opacity: 0;
 	transition: all 0.5s ease;
