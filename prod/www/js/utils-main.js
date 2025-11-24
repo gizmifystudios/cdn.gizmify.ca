@@ -457,22 +457,15 @@ function activatePromo() {
 
 	banner.classList.remove('d-none');
 	banner.classList.add('show');
-	let promoVisible = true;
 	
 	window.onscroll = function() {
 		if ((document.body.scrollTop > 512 || document.documentElement.scrollTop > 512)) {
-			if (promoVisible) {
-				promoVisible = false;
-				banner.classList.remove('show');
-				banner.classList.add('d-none');
-			}
+			banner.classList.remove('show');
+			banner.classList.add('d-none');
 		}
 		else {
-			if (!promoVisible) {
-				promoVisible = true;
-				banner.classList.remove('d-none');
-				banner.classList.add('show');
-			}
+			banner.classList.remove('d-none');
+			banner.classList.add('show');
 		}
 	}
 
