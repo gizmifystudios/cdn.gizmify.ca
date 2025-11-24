@@ -31,27 +31,61 @@ function activateBackToTop() {
 function activateScroll() {
 	const toTopBtn = document.getElementById("backToTop");
 	const downloadBtn = document.getElementById("btn-download-top");
+	const banner = document.getElementById('promoBanner');
 	
+	var toTopVisible = false;
+	var downloadVisible = false;
+	var promoVisible = true;
+
 	window.onscroll = function() {
 		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-			toTopBtn.style.display = "block";
+			if (!toTopVisible) {
+				toTopVisible = true;
+				toTopBtn.style.display = "block";
+			}
 		}
 		else {
-			toTopBtn.style.display = "none";
+			if (toTopVisible) {
+				toTopVisible = false;
+				toTopBtn.style.display = "none";
+			}
 		}
 		
 		if (downloadBtn) {
 			if (document.body.scrollTop > 512 || document.documentElement.scrollTop > 512) {
-				downloadBtn.classList.add("visible");
-				setTimeout(() => {
-					downloadBtn.classList.add("visible-zoomed");
-				}, 250);
+				if (!downloadVisible) {
+					downloadVisible = true;
+					downloadBtn.classList.add("visible");
+					setTimeout(() => {
+						downloadBtn.classList.add("visible-zoomed");
+					}, 250);
+				}
 			}
 			else {
-				downloadBtn.classList.remove("visible-zoomed");
-				setTimeout(() => {
-					downloadBtn.classList.remove("visible");
-				}, 250);
+				if (downloadVisible) {
+					downloadVisible = false;
+					downloadBtn.classList.remove("visible-zoomed");
+					setTimeout(() => {
+						downloadBtn.classList.remove("visible");
+					}, 250);
+				}
+			}
+		}
+
+		if (banner) {
+			if ((document.body.scrollTop > 512 || document.documentElement.scrollTop > 512)) {
+				if (promoVisible) {
+					promoVisible = false;
+					banner.classList.remove('show');
+					banner.classList.add('d-none');
+				}
+			}
+			else {
+				if (!promoVisible) {
+					promoVisible = true;
+					banner.classList.remove('d-none');
+					banner.classList.add('show');
+				}
 			}
 		}
 	};
@@ -457,17 +491,6 @@ function activatePromo() {
 
 	banner.classList.remove('d-none');
 	banner.classList.add('show');
-	
-	window.onscroll = function() {
-		if ((document.body.scrollTop > 512 || document.documentElement.scrollTop > 512)) {
-			banner.classList.remove('show');
-			banner.classList.add('d-none');
-		}
-		else {
-			banner.classList.remove('d-none');
-			banner.classList.add('show');
-		}
-	}
 
 	document.getElementById("promoClose").addEventListener("click", function () {
 		document.getElementById("promoBanner").style.display = "none";
