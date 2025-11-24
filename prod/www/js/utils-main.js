@@ -32,26 +32,39 @@ function activateScroll() {
 	const toTopBtn = document.getElementById("backToTop");
 	const downloadBtn = document.getElementById("btn-download-top");
 	
+	var toTopVisible = false;
+	var downloadVisible = false;
+
 	window.onscroll = function() {
 		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-			toTopBtn.style.display = "block";
+			if (!toTopVisible) {
+				toTopBtn.style.display = "block";
+				toTopVisible = true;
+			}
 		}
 		else {
-			toTopBtn.style.display = "none";
+			if (toTopVisible) {
+				toTopBtn.style.display = "none";
+				toTopVisible = false;
+			}
 		}
 		
 		if (downloadBtn) {
 			if (document.body.scrollTop > 512 || document.documentElement.scrollTop > 512) {
-				downloadBtn.classList.add("visible");
-				setTimeout(() => {
-					downloadBtn.classList.add("visible-zoomed");
-				}, 250);
+				if (!downloadVisible) {
+					downloadBtn.classList.add("visible");
+					setTimeout(() => {
+						downloadBtn.classList.add("visible-zoomed");
+					}, 250);
+				}
 			}
 			else {
-				downloadBtn.classList.remove("visible-zoomed");
-				setTimeout(() => {
-					downloadBtn.classList.remove("visible");
-				}, 250);
+				if (downloadVisible) {
+					downloadBtn.classList.remove("visible-zoomed");
+					setTimeout(() => {
+						downloadBtn.classList.remove("visible");
+					}, 250);
+				}
 			}
 		}
 	};
@@ -454,8 +467,27 @@ function activateHelpful() {
 function activatePromo() {
 	const banner = document.getElementById('promoBanner');
 	if (!banner) return;
+
 	banner.classList.remove('d-none');
 	banner.classList.add('show');
+	var isVisible = true;
+	
+	window.onscroll = function() {
+		if ((document.body.scrollTop > 512 || document.documentElement.scrollTop > 512)) {
+			if (isVisible) {
+				isVisible = false;
+				banner.classList.remove('show');
+				banner.classList.add('d-none');
+			}
+		}
+		else {
+			if (!isVisible) {
+				isVisible = true;
+				banner.classList.remove('d-none');
+				banner.classList.add('show');
+			}
+		}
+	}
 
 	document.getElementById("promoClose").addEventListener("click", function () {
 		document.getElementById("promoBanner").style.display = "none";
