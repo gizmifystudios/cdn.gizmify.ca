@@ -451,6 +451,12 @@ function activateHelpful() {
 	});
 }
 
+function activatePromo() {
+	document.getElementById("promoClose").addEventListener("click", function () {
+		document.getElementById("promoBanner").style.display = "none";
+	});
+}
+
 
 function activateAll() {
 	loadIcons();
