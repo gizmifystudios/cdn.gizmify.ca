@@ -452,6 +452,11 @@ function activateHelpful() {
 }
 
 function activatePromo() {
+	const banner = document.getElementById('promoBanner');
+	if (!banner) return;
+	banner.classList.remove('d-none');
+	banner.classList.add('show');
+
 	document.getElementById("promoClose").addEventListener("click", function () {
 		document.getElementById("promoBanner").style.display = "none";
 	});
