@@ -32,41 +32,26 @@ function activateScroll() {
 	const toTopBtn = document.getElementById("backToTop");
 	const downloadBtn = document.getElementById("btn-download-top");
 	
-	let toTopVisible = false;
-	let downloadVisible = false;
-
 	window.onscroll = function() {
 		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-			if (!toTopVisible) {
-				toTopVisible = true;
-				toTopBtn.style.display = "block";
-			}
+			toTopBtn.style.display = "block";
 		}
 		else {
-			if (toTopVisible) {
-				toTopVisible = false;
-				toTopBtn.style.display = "none";
-			}
+			toTopBtn.style.display = "none";
 		}
 		
 		if (downloadBtn) {
 			if (document.body.scrollTop > 512 || document.documentElement.scrollTop > 512) {
-				if (!downloadVisible) {
-					downloadVisible = true;
-					downloadBtn.classList.add("visible");
-					setTimeout(() => {
-						downloadBtn.classList.add("visible-zoomed");
-					}, 250);
-				}
+				downloadBtn.classList.add("visible");
+				setTimeout(() => {
+					downloadBtn.classList.add("visible-zoomed");
+				}, 250);
 			}
 			else {
-				if (downloadVisible) {
-					downloadVisible = false;
-					downloadBtn.classList.remove("visible-zoomed");
-					setTimeout(() => {
-						downloadBtn.classList.remove("visible");
-					}, 250);
-				}
+				downloadBtn.classList.remove("visible-zoomed");
+				setTimeout(() => {
+					downloadBtn.classList.remove("visible");
+				}, 250);
 			}
 		}
 	};
