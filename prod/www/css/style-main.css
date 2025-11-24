@@ -929,13 +929,6 @@ p.attribute-desc {
 	box-shadow: 0 4px 16px rgba(0,0,0,0.5);
 }
 
-@media (max-width: 768px) {
-	#promoBanner {
-		margin: 0px 50%;
-		transform: translateX(-50%);
-	}
-}
-
 #promoBanner.show {
 	display: flex;
 	opacity: 1;
