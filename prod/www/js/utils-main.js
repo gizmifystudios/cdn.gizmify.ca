@@ -38,20 +38,21 @@ function activateScroll() {
 	window.onscroll = function() {
 		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 			if (!toTopVisible) {
-				toTopBtn.style.display = "block";
 				toTopVisible = true;
+				toTopBtn.style.display = "block";
 			}
 		}
 		else {
 			if (toTopVisible) {
-				toTopBtn.style.display = "none";
 				toTopVisible = false;
+				toTopBtn.style.display = "none";
 			}
 		}
 		
 		if (downloadBtn) {
 			if (document.body.scrollTop > 512 || document.documentElement.scrollTop > 512) {
 				if (!downloadVisible) {
+					downloadVisible = true;
 					downloadBtn.classList.add("visible");
 					setTimeout(() => {
 						downloadBtn.classList.add("visible-zoomed");
@@ -60,6 +61,7 @@ function activateScroll() {
 			}
 			else {
 				if (downloadVisible) {
+					downloadVisible = false;
 					downloadBtn.classList.remove("visible-zoomed");
 					setTimeout(() => {
 						downloadBtn.classList.remove("visible");
