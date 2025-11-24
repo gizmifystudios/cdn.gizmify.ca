@@ -32,8 +32,8 @@ function activateScroll() {
 	const toTopBtn = document.getElementById("backToTop");
 	const downloadBtn = document.getElementById("btn-download-top");
 	
-	var toTopVisible = false;
-	var downloadVisible = false;
+	let toTopVisible = false;
+	let downloadVisible = false;
 
 	window.onscroll = function() {
 		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -472,19 +472,19 @@ function activatePromo() {
 
 	banner.classList.remove('d-none');
 	banner.classList.add('show');
-	var isVisible = true;
+	let promoVisible = true;
 	
 	window.onscroll = function() {
 		if ((document.body.scrollTop > 512 || document.documentElement.scrollTop > 512)) {
-			if (isVisible) {
-				isVisible = false;
+			if (promoVisible) {
+				promoVisible = false;
 				banner.classList.remove('show');
 				banner.classList.add('d-none');
 			}
 		}
 		else {
-			if (!isVisible) {
-				isVisible = true;
+			if (!promoVisible) {
+				promoVisible = true;
 				banner.classList.remove('d-none');
 				banner.classList.add('show');
 			}
