@@ -915,7 +915,7 @@ p.attribute-desc {
 }
 
 #promoBanner {
-	position: absolute;
+	position: fixed;
 	top: 110px;
 	margin: 0px 10px;
 	opacity: 0;
@@ -930,6 +930,7 @@ p.attribute-desc {
 }
 
 #promoBanner.show {
+	display: flex;
 	opacity: 1;
 }
 
