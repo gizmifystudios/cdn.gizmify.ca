@@ -971,6 +971,10 @@ p.attribute-desc {
 }
 
 div.promoBanner {
-	height: 150px;
+	height: 100px;
 	width: 100%;
+}
+
+div.promoBanner img.promo {
+	height: 100px;
 }
