@@ -468,7 +468,8 @@ function activateHelpful() {
 
 function activatePromo() {
 	document.getElementById("promoClose").addEventListener("click", function () {
-		document.getElementById("promoBanner").classList.add('d-none');
+		document.getElementById("promo-banner").classList.add('d-none');
+		document.getElementById("promo-gap").classList.add('d-none');
 		document.getElementById("navbar").classList.remove('navbar-with-promo');
 	});
 }

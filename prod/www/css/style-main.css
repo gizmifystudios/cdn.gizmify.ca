@@ -52,7 +52,7 @@ img#logo-footer {
 	color: #ffffffdd;
 }
 
-#header-gap {
+#header-gap, #promo-gap {
 	height: 100px;
 	padding: 0;
 }
@@ -973,7 +973,7 @@ p.attribute-desc {
 	}
 }
 
-div.promoBanner {
+div.promo-banner {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -983,7 +983,7 @@ div.promoBanner {
 	z-index: 1000;
 }
 
-div.promoBanner img.promo {
+div.promo-banner img.promo {
 	height: 100px;
 	position: absolute;
 	left: 50%;
@@ -991,7 +991,7 @@ div.promoBanner img.promo {
 }
 
 @media (max-width: 768px) {
-	div.promoBanner img.promo {
+	div.promo-banner img.promo {
 		width: 90%;
         top: 50%;
         transform: translateY(-50%) translateX(-50%);
