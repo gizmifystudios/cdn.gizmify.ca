@@ -111,6 +111,7 @@ article.blog-article blockquote, blockquote.bq-green {
 	background: rgba(18, 18, 18, 0.9);
 	box-shadow: 0 4px 10px rgba(0,0,0,0.6);
 }
+nav.navbar-with-promo { top: 100px; }
 
 .btn-primary {
 	background-color: #0eab2f;
