@@ -991,8 +991,9 @@ div.promoBanner img.promo {
 
 @media (max-width: 768px) {
 	div.promoBanner img.promo {
-		height: auto;
-		top: 50%;
-		transform: translateY(-50%);
+		width: 90%;
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        height: auto;
 	}
 }
