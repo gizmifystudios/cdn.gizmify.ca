@@ -257,6 +257,7 @@ section.goal-section {
 .bg-tile-green { background-image: url("https://cdn.gizmify.ca/prod/www/img/general/bg-green-tile.png"); }
 .bg-tile-dark-blue { background-image: url("https://cdn.gizmify.ca/prod/www/img/general/bg-dark-blue-tile.png"); }
 .bg-tile-dark-gray { background-image: url("https://cdn.gizmify.ca/prod/www/img/general/bg-dark-gray-tile.png"); }
+.bg-tile-black { background-image: url("https://cdn.gizmify.ca/prod/www/img/general/bg-black-tile.png"); }
 
 section.versions-section {
 	background-color: #181b1e;
@@ -990,7 +991,8 @@ div.promoBanner img.promo {
 
 @media (max-width: 768px) {
 	div.promoBanner img.promo {
-		width: 90%;
 		height: auto;
+		top: 50%;
+		transform: translateY(-50%);
 	}
 }
