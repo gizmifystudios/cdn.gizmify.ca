@@ -31,11 +31,9 @@ function activateBackToTop() {
 function activateScroll() {
 	const toTopBtn = document.getElementById("backToTop");
 	const downloadBtn = document.getElementById("btn-download-top");
-	const banner = document.getElementById('promoBanner');
 	
 	var toTopVisible = false;
 	var downloadVisible = false;
-	var promoVisible = true;
 
 	window.onscroll = function() {
 		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -68,23 +66,6 @@ function activateScroll() {
 					setTimeout(() => {
 						downloadBtn.classList.remove("visible");
 					}, 250);
-				}
-			}
-		}
-
-		if (banner) {
-			if ((document.body.scrollTop > 230 || document.documentElement.scrollTop > 230)) {
-				if (promoVisible) {
-					promoVisible = false;
-					banner.classList.remove('show');
-					banner.classList.add('d-none');
-				}
-			}
-			else {
-				if (!promoVisible) {
-					promoVisible = true;
-					banner.classList.remove('d-none');
-					banner.classList.add('show');
 				}
 			}
 		}
@@ -486,12 +467,6 @@ function activateHelpful() {
 }
 
 function activatePromo() {
-	const banner = document.getElementById('promoBanner');
-	if (!banner) return;
-
-	banner.classList.remove('d-none');
-	banner.classList.add('show');
-
 	document.getElementById("promoClose").addEventListener("click", function () {
 		document.getElementById("promoBanner").style.display = "none";
 	});
