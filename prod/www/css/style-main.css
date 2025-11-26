@@ -987,3 +987,10 @@ div.promoBanner img.promo {
 	left: 50%;
 	transform: translateX(-50%);
 }
+
+@media (max-width: 768px) {
+	div.promoBanner img.promo {
+		width: 100%;
+		height: auto;
+	}
+}
