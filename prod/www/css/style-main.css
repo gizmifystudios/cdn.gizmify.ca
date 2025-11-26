@@ -981,4 +981,7 @@ div.promoBanner {
 
 div.promoBanner img.promo {
 	height: 100px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
 }
