@@ -980,6 +980,7 @@ div.promoBanner {
 	right: 0;
 	height: 100px;
 	width: 100%;
+	z-index: 1000;
 }
 
 div.promoBanner img.promo {
