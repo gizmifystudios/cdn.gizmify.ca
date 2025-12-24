@@ -466,7 +466,8 @@ function activateHelpful() {
 	});
 }
 
-function carouselAutoScrollStart(slider) {
+function carouselAutoScrollStart(slider, autoScrollInterval) {
+	if (autoScrollInterval) clearInterval(autoScrollInterval);
 	return setInterval(() => {
 		const cardWidth = slider.querySelector('.testimonial-card').offsetWidth + 24;
 		if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
@@ -496,13 +497,13 @@ function activateCarousel() {
 	slider.addEventListener('mouseleave', () => {
 		isDown = false;
 		slider.classList.remove('active');
-		carouselAutoScrollStart(slider);
+		carouselAutoScrollStart(slider, autoScrollInterval);
 	});
 
 	slider.addEventListener('mouseup', () => {
 		isDown = false;
 		slider.classList.remove('active');
-		carouselAutoScrollStart(slider);
+		carouselAutoScrollStart(slider, autoScrollInterval);
 	});
 
 	slider.addEventListener('mousemove', (e) => {
@@ -518,10 +519,10 @@ function activateCarousel() {
 	});
 
 	slider.addEventListener('mouseleave', () => {
-		autoScrollInterval = carouselAutoScrollStart(slider);
+		autoScrollInterval = carouselAutoScrollStart(slider, autoScrollInterval);
 	});
 
-	autoScrollInterval = carouselAutoScrollStart(slider);
+	autoScrollInterval = carouselAutoScrollStart(slider, null);
 }
 
 function activatePromo() {
