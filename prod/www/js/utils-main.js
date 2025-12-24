@@ -467,7 +467,7 @@ function activateHelpful() {
 }
 
 function carouselAutoScrollStart(slider, autoScrollInterval) {
-	if (autoScrollInterval) return;
+	if (autoScrollInterval) return autoScrollInterval;
 	console.log("carousel start");
 	return setInterval(() => {
 		console.log("scroll");
