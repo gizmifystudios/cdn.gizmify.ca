@@ -490,7 +490,7 @@ function activateCarousel() {
 		slider.classList.add('active');
 		startX = e.pageX - slider.offsetLeft;
 		scrollLeft = slider.scrollLeft;
-		stopAutoScroll();
+		clearInterval(autoScrollInterval);
 	});
 
 	slider.addEventListener('mouseleave', () => {
