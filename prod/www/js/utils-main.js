@@ -467,7 +467,7 @@ function activateHelpful() {
 }
 
 function carouselAutoScrollStart(slider, autoScrollInterval) {
-	if (autoScrollInterval > 0) clearInterval(autoScrollInterval);
+	if (autoScrollInterval) return;
 	console.log("carousel start");
 	return setInterval(() => {
 		console.log("scroll");
@@ -486,7 +486,7 @@ function activateCarousel() {
 	let isDown = false;
 	let startX;
 	let scrollLeft;
-	let autoScrollInterval;
+	let autoScrollInterval = null;
 
 	slider.addEventListener('mousedown', (e) => {
 		isDown = true;
@@ -494,6 +494,7 @@ function activateCarousel() {
 		startX = e.pageX - slider.offsetLeft;
 		scrollLeft = slider.scrollLeft;
 		clearInterval(autoScrollInterval);
+		autoScrollInterval = null;
 	});
 
 	slider.addEventListener('mouseleave', () => {
@@ -518,6 +519,7 @@ function activateCarousel() {
 
 	slider.addEventListener('mouseenter', () => {
 		clearInterval(autoScrollInterval);
+		autoScrollInterval = null;
 	});
 
 	slider.addEventListener('mouseleave', () => {
