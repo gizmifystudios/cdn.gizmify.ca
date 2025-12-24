@@ -500,13 +500,13 @@ function activateCarousel() {
 	slider.addEventListener('mouseleave', () => {
 		isDown = false;
 		slider.classList.remove('active');
-		carouselAutoScrollStart(slider, autoScrollInterval);
+		autoScrollInterval = carouselAutoScrollStart(slider, autoScrollInterval);
 	});
 
 	slider.addEventListener('mouseup', () => {
 		isDown = false;
 		slider.classList.remove('active');
-		carouselAutoScrollStart(slider, autoScrollInterval);
+		autoScrollInterval = carouselAutoScrollStart(slider, autoScrollInterval);
 	});
 
 	slider.addEventListener('mousemove', (e) => {
