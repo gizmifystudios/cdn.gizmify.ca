@@ -1018,7 +1018,7 @@ div.promo-banner img.promo {
 }
 
 .testimonial-card {
-	flex: 0 0 85%;
+	flex: 0 0 95%;
 	max-width: 420px;
 	background: rgba(16, 16, 16, 0.1);
 	backdrop-filter: blur(5px);
