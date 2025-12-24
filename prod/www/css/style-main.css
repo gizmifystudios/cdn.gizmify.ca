@@ -1018,12 +1018,12 @@ div.promo-banner img.promo {
 }
 
 .testimonial-card {
-	flex: 0 0 95%;
+	flex: 0 0 90%;
 	max-width: 420px;
 	background: rgba(16, 16, 16, 0.1);
 	backdrop-filter: blur(5px);
 	border-radius: 1.25rem;
-	padding: 2.5rem 2rem;
+	padding: 2.5rem 1rem;
 	text-align: center;
 	border: 1px solid rgba(255,255,255, 0.2);
 	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
@@ -1033,12 +1033,14 @@ div.promo-banner img.promo {
 @media (min-width: 768px) {
 	.testimonial-card {
 		flex: 0 0 45%;
+		padding: 2.5rem 2rem;
 	}
 }
 
 @media (min-width: 1200px) {
 	.testimonial-card {
 		flex: 0 0 30%;
+		padding: 2.5rem 2rem;
 	}
 }
 
