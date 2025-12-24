@@ -496,13 +496,13 @@ function activateCarousel() {
 	slider.addEventListener('mouseleave', () => {
 		isDown = false;
 		slider.classList.remove('active');
-		startCarouselAutoScroll();
+		carouselAutoScrollStart();
 	});
 
 	slider.addEventListener('mouseup', () => {
 		isDown = false;
 		slider.classList.remove('active');
-		startCarouselAutoScroll();
+		carouselAutoScrollStart();
 	});
 
 	slider.addEventListener('mousemove', (e) => {
