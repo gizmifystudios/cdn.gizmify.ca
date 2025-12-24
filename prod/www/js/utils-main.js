@@ -466,7 +466,7 @@ function activateHelpful() {
 	});
 }
 
-function startCarouselAutoScroll(slider) {
+function carouselAutoScrollStart(slider) {
 	return setInterval(() => {
 		const cardWidth = slider.querySelector('.testimonial-card').offsetWidth + 24;
 		if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
