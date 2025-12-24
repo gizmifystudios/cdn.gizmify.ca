@@ -468,7 +468,9 @@ function activateHelpful() {
 
 function carouselAutoScrollStart(slider, autoScrollInterval) {
 	if (autoScrollInterval > 0) clearInterval(autoScrollInterval);
+	console.log("carousel start");
 	return setInterval(() => {
+		console.log("scroll");
 		const cardWidth = slider.querySelector('.testimonial-card').offsetWidth + 24;
 		if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
 			slider.scrollTo({ left: 0, behavior: 'smooth' });
