@@ -466,6 +466,64 @@ function activateHelpful() {
 	});
 }
 
+function startCarouselAutoScroll(slider) {
+	return setInterval(() => {
+		const cardWidth = slider.querySelector('.testimonial-card').offsetWidth + 24;
+		if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+			slider.scrollTo({ left: 0, behavior: 'smooth' });
+		}
+		else {
+			slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+		}
+	}, 10000);
+}
+
+function activateCarousel() {
+	const slider = document.getElementById('carousel-slider');
+	let isDown = false;
+	let startX;
+	let scrollLeft;
+	let autoScrollInterval;
+
+	slider.addEventListener('mousedown', (e) => {
+		isDown = true;
+		slider.classList.add('active');
+		startX = e.pageX - slider.offsetLeft;
+		scrollLeft = slider.scrollLeft;
+		stopAutoScroll();
+	});
+
+	slider.addEventListener('mouseleave', () => {
+		isDown = false;
+		slider.classList.remove('active');
+		startCarouselAutoScroll();
+	});
+
+	slider.addEventListener('mouseup', () => {
+		isDown = false;
+		slider.classList.remove('active');
+		startCarouselAutoScroll();
+	});
+
+	slider.addEventListener('mousemove', (e) => {
+		if (!isDown) return;
+		e.preventDefault();
+		const x = e.pageX - slider.offsetLeft;
+		const walk = (x - startX) * 1.5;
+		slider.scrollLeft = scrollLeft - walk;
+	});
+
+	slider.addEventListener('mouseenter', () => {
+		clearInterval(autoScrollInterval);
+	});
+
+	slider.addEventListener('mouseleave', () => {
+		autoScrollInterval = carouselAutoScrollStart(slider);
+	});
+
+	autoScrollInterval = carouselAutoScrollStart(slider);
+}
+
 function activatePromo() {
 	document.getElementById("promoClose").addEventListener("click", function () {
 		document.getElementById("promo-banner").classList.add('d-none');
