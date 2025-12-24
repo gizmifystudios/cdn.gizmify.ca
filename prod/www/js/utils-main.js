@@ -466,11 +466,9 @@ function activateHelpful() {
 	});
 }
 
-function carouselAutoScrollStart(slider, autoScrollInterval) {
-	if (autoScrollInterval) return autoScrollInterval;
-	console.log("carousel start");
+function carouselAutoScrollStart(slider, scrollInterval) {
+	if (scrollInterval) return scrollInterval;
 	return setInterval(() => {
-		console.log("scroll");
 		const cardWidth = slider.querySelector('.testimonial-card').offsetWidth + 24;
 		if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
 			slider.scrollTo({ left: 0, behavior: 'smooth' });
@@ -486,27 +484,27 @@ function activateCarousel() {
 	let isDown = false;
 	let startX;
 	let scrollLeft;
-	let autoScrollInterval = null;
+	let scrollInterval = null;
 
 	slider.addEventListener('mousedown', (e) => {
 		isDown = true;
 		slider.classList.add('active');
 		startX = e.pageX - slider.offsetLeft;
 		scrollLeft = slider.scrollLeft;
-		clearInterval(autoScrollInterval);
-		autoScrollInterval = null;
+		clearInterval(scrollInterval);
+		scrollInterval = null;
 	});
 
 	slider.addEventListener('mouseleave', () => {
 		isDown = false;
 		slider.classList.remove('active');
-		autoScrollInterval = carouselAutoScrollStart(slider, autoScrollInterval);
+		scrollInterval = carouselAutoScrollStart(slider, scrollInterval);
 	});
 
 	slider.addEventListener('mouseup', () => {
 		isDown = false;
 		slider.classList.remove('active');
-		autoScrollInterval = carouselAutoScrollStart(slider, autoScrollInterval);
+		scrollInterval = carouselAutoScrollStart(slider, scrollInterval);
 	});
 
 	slider.addEventListener('mousemove', (e) => {
@@ -518,15 +516,15 @@ function activateCarousel() {
 	});
 
 	slider.addEventListener('mouseenter', () => {
-		clearInterval(autoScrollInterval);
-		autoScrollInterval = null;
+		clearInterval(scrollInterval);
+		scrollInterval = null;
 	});
 
 	slider.addEventListener('mouseleave', () => {
-		autoScrollInterval = carouselAutoScrollStart(slider, autoScrollInterval);
+		scrollInterval = carouselAutoScrollStart(slider, scrollInterval);
 	});
 
-	autoScrollInterval = carouselAutoScrollStart(slider, null);
+	scrollInterval = carouselAutoScrollStart(slider, scrollInterval);
 }
 
 function activatePromo() {
