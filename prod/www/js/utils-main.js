@@ -232,21 +232,30 @@ function journeyProductPage() {
 }
 
 function activateJournies() {
-	if (typeof gtag !== "function") return;
+	if (typeof gtag !== "function") {
+		document.querySelectorAll(".btn-choose").forEach(link => {
+			const url = link.href + '?' + buildLastTouchQuery();
+			link.addEventListener("click", function(e) {
+				e.preventDefault();
+				window.location.href = url;
+			});
+		});
+		return;
+	}
+	
 	journeyProductPage();
-
 	document.querySelectorAll(".btn-choose").forEach(link => {
 		const itemId = link.dataset.itemId;
 		const itemName = link.dataset.itemName;
 		const price = parseFloat(link.dataset.price);
-		const url = link.href; // + '?' + buildLastTouchQuery();
+		const url = link.href + '?' + buildLastTouchQuery();
 		
 		link.addEventListener("click", function(e) {
 			e.preventDefault();
 
 			journeyEvent("add_to_cart", itemId, itemName, price, function() {
 				journeyEvent("begin_checkout", itemId, itemName, price, function() {
-					window.location.href = url + '?abc=123';
+					window.location.href = url;
 				});
 			});
 			
