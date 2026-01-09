@@ -239,15 +239,14 @@ function activateJournies() {
 		const itemId = link.dataset.itemId;
 		const itemName = link.dataset.itemName;
 		const price = parseFloat(link.dataset.price);
-		const url = link.href + '?' + buildLastTouchQuery();
-		console.log(url);
+		const url = link.href; // + '?' + buildLastTouchQuery();
 		
 		link.addEventListener("click", function(e) {
 			e.preventDefault();
 
 			journeyEvent("add_to_cart", itemId, itemName, price, function() {
 				journeyEvent("begin_checkout", itemId, itemName, price, function() {
-					window.location.href = url;
+					window.location.href = url + '?abc=123';
 				});
 			});
 			
