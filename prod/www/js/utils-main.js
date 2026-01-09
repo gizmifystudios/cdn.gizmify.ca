@@ -240,6 +240,7 @@ function activateJournies() {
 		const itemName = link.dataset.itemName;
 		const price = parseFloat(link.dataset.price);
 		const url = link.href + '?' + buildLastTouchQuery();
+		console.log(url);
 		
 		link.addEventListener("click", function(e) {
 			e.preventDefault();
