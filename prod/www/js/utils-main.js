@@ -170,6 +170,7 @@ function activateLastTouch() {
 	keys.forEach(key => {
 		utmData.push(params.has(key) ? encodeURIComponent(params.get(key)) : '-');
 	});
+	utmData.push(document.referrer ? encodeURIComponent(document.referrer) : '-');
 	localStorage.setItem('utmLast', utmData.join('|'));
 }
 
@@ -177,7 +178,7 @@ function buildLastTouchQuery() {
 	const utmLast = localStorage.getItem('utmLast');
 	if (!utmLast) return '';
 
-	const keys = ['utm_source', 'utm_medium', 'utm_campaign'];
+	const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'referer'];
 	const values = utmLast.split('|');
 
 	const params = new URLSearchParams();
