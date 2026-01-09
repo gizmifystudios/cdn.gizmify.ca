@@ -150,7 +150,44 @@ function displayAlert() {
 		});
 	}
 }
-// -- GA Journey -- //
+
+// -- Journies -- //
+
+function getUTMObject(utmKeys) {
+	const data = {};
+	utmKeys.forEach(key => {
+		if (params.has(key)) {
+			data[key] = params.get(key);
+		}
+	});
+	return data;
+}
+
+function activateLastTouch() {
+	const params = new URLSearchParams(window.location.search);
+	const keys = ['utm_source', 'utm_medium', 'utm_campaign'];
+	const utmData = [];
+	keys.forEach(key => {
+		utmData.push(params.has(key) ? encodeURIComponent(params.get(key)) : '-');
+	});
+	localStorage.setItem('utmLast', utmData.join('|'));
+}
+
+function buildLastTouchQuery() {
+	const utmLast = localStorage.getItem('utmLast');
+	if (!utmLast) return '';
+
+	const keys = ['utm_source', 'utm_medium', 'utm_campaign'];
+	const values = utmLast.split('|');
+
+	const params = new URLSearchParams();
+	for (let i = 0; i < keys.length; i++) {
+		if (values[i] && values[i] !== '-') {
+			params.set(keys[i], decodeURIComponent(values[i]));
+		}
+	}
+	return params.toString();
+}
 
 function journeyEvent(event, itemIds, itemNames, prices, callbackFunc = null) {
 	if (typeof gtag !== "function") return;
@@ -195,7 +232,7 @@ function activateJournies() {
 		const itemId = link.dataset.itemId;
 		const itemName = link.dataset.itemName;
 		const price = parseFloat(link.dataset.price);
-		const url = link.href;
+		const url = link.href + '?' + buildLastTouchQuery();
 		
 		link.addEventListener("click", function(e) {
 			e.preventDefault();
@@ -212,6 +249,7 @@ function activateJournies() {
 		});
 	});
 }
+
 
 function activateUnsubAllButton() {
 	const allBox = document.getElementById('all');
@@ -558,4 +596,5 @@ function activateAll() {
 	activateBackToTop();
 	activateScroll();
 	activateAnalytics();
+	activateLastTouch();
 }
