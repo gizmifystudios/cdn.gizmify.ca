@@ -242,7 +242,6 @@ function activateJournies() {
 		});
 		return;
 	}
-	
 	journeyProductPage();
 	document.querySelectorAll(".btn-choose").forEach(link => {
 		const itemId = link.dataset.itemId;
