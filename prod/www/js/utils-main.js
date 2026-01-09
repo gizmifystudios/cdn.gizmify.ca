@@ -170,7 +170,13 @@ function activateLastTouch() {
 	keys.forEach(key => {
 		utmData.push(params.has(key) ? encodeURIComponent(params.get(key)) : '-');
 	});
-	utmData.push(document.referrer ? encodeURIComponent(document.referrer) : '-');
+	if (document.referrer && !document.referrer.includes('.gizmify.ca')) {
+		const url = new URL(document.referrer);
+		utmData.push(url.hostname);
+	}
+	else {
+		utmData.push('-');
+	}
 	localStorage.setItem('utmLast', utmData.join('|'));
 }
 
