@@ -184,16 +184,24 @@ function activateFirstLastTouch() {
 }
 
 function buildLastTouchQuery() {
+	const utmFirst = localStorage.getItem('utmFirst');
 	const utmLast = localStorage.getItem('utmLast');
-	if (!utmLast) return '';
-
-	const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'referer'];
-	const values = utmLast.split('|');
+	if (!utmFirst && !utmLast) return '';
 
 	const params = new URLSearchParams();
-	for (let i = 0; i < keys.length; i++) {
-		if (values[i] && values[i] !== '-') {
-			params.set(keys[i], decodeURIComponent(values[i]));
+	
+	const keys1 = ['s1', 'm1', 'c1', 'r1'];
+	const vals1 = utmFirst.split('|');
+	for (let i = 0; i < keys1.length; i++) {
+		if (vals1[i] && vals1[i] !== '-') {
+			params.set(keys1[i], vals1[i]);
+		}
+	}
+	const keys2 = ['s2', 'm2', 'c2', 'r2'];
+	const vals2 = utmLast.split('|');
+	for (let i = 0; i < keys2.length; i++) {
+		if (vals2[i] && vals2[i] !== '-') {
+			params.set(keys2[i], vals2[i]);
 		}
 	}
 	return params.toString();
