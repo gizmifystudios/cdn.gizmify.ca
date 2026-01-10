@@ -153,31 +153,34 @@ function displayAlert() {
 
 // -- Journies -- //
 
-function getUTMObject(utmKeys) {
-	const data = {};
-	utmKeys.forEach(key => {
-		if (params.has(key)) {
-			data[key] = params.get(key);
+function _getUtmData() {
+	const params = new URLSearchParams(window.location.search);
+	const keys = [ 'utm_source', 'utm_medium', 'utm_campaign' ];
+	const utmValues = keys.map(k => params.get(k) || '-');
+
+	let referrerHost = '-';
+	if (document.referrer && !document.referrer.includes('gizmify.ca')) {
+		try {
+			referrerHost = new URL(document.referrer).hostname;
+		} catch {
+			referrerHost = '-';
 		}
-	});
-	return data;
+	}
+
+	return {
+		utmStr: [...utmValues, referrerHost].join('|'),
+		hasSignal: utmValues.some(v => v !== '-') || referrerHost !== '-'
+	};
 }
 
-function activateLastTouch() {
-	const params = new URLSearchParams(window.location.search);
-	const keys = ['utm_source', 'utm_medium', 'utm_campaign'];
-	const utmData = [];
-	keys.forEach(key => {
-		utmData.push(params.has(key) ? encodeURIComponent(params.get(key)) : '-');
-	});
-	if (document.referrer && !document.referrer.includes('.gizmify.ca')) {
-		const url = new URL(document.referrer);
-		utmData.push(url.hostname);
+function activateFirstLastTouch() {
+	const { utmStr, hasSignal } = _getUtmData();
+	if (!hasSignal) return;
+
+	if (!localStorage.getItem('utmFirst')) {
+		localStorage.setItem('utmFirst', utmStr);
 	}
-	else {
-		utmData.push('-');
-	}
-	localStorage.setItem('utmLast', utmData.join('|'));
+	localStorage.setItem('utmLast', utmStr);
 }
 
 function buildLastTouchQuery() {
@@ -611,5 +614,5 @@ function activateAll() {
 	activateBackToTop();
 	activateScroll();
 	activateAnalytics();
-	activateLastTouch();
+	activateFirstLastTouch();
 }
