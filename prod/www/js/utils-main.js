@@ -153,30 +153,6 @@ function displayAlert() {
 
 // -- Journies -- //
 
-function buildLastTouchQuery() {
-	const utmFirst = localStorage.getItem('utmFirst');
-	const utmLast = localStorage.getItem('utmLast');
-	if (!utmFirst && !utmLast) return '';
-
-	const params = new URLSearchParams();
-	
-	const keys1 = ['s1', 'm1', 'c1', 'r1'];
-	const vals1 = utmFirst.split('|');
-	for (let i = 0; i < keys1.length; i++) {
-		if (vals1[i] && vals1[i] !== '-') {
-			params.set(keys1[i], vals1[i]);
-		}
-	}
-	const keys2 = ['s2', 'm2', 'c2', 'r2'];
-	const vals2 = utmLast.split('|');
-	for (let i = 0; i < keys2.length; i++) {
-		if (vals2[i] && vals2[i] !== '-') {
-			params.set(keys2[i], vals2[i]);
-		}
-	}
-	return params.toString();
-}
-
 function journeyEvent(event, itemIds, itemNames, prices, callbackFunc = null) {
 	if (typeof gtag !== "function") return;
 
@@ -213,34 +189,24 @@ function journeyProductPage() {
 }
 
 function activateJournies() {
-	if (typeof gtag !== "function") {
-		document.querySelectorAll(".btn-choose").forEach(link => {
-			const url = link.href + '?' + buildLastTouchQuery();
-			link.addEventListener("click", function(e) {
-				e.preventDefault();
-				window.location.href = url;
-			});
-		});
-		return;
-	}
+	if (typeof gtag !== "function") return;
 	journeyProductPage();
 	document.querySelectorAll(".btn-choose").forEach(link => {
 		const itemId = link.dataset.itemId;
 		const itemName = link.dataset.itemName;
 		const price = parseFloat(link.dataset.price);
-		const url = link.href + '?' + buildLastTouchQuery();
 		
 		link.addEventListener("click", function(e) {
 			e.preventDefault();
 
 			journeyEvent("add_to_cart", itemId, itemName, price, function() {
 				journeyEvent("begin_checkout", itemId, itemName, price, function() {
-					window.location.href = url;
+					window.location.href = link.href;
 				});
 			});
 			
 			setTimeout(function() {
-				window.location.href = url;
+				window.location.href = link.href;
 			}, 5000);
 		});
 	});
