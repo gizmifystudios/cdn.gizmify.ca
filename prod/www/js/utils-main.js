@@ -179,18 +179,19 @@ function journeyEvent(event, itemIds, itemNames, prices, callbackFunc = null) {
 
 function journeyProductPage() {
 	const chooseBtns = document.querySelectorAll(".btn-choose");
-	if (chooseBtns.length <= 0) return;
+	if (chooseBtns.length <= 0) return false;
 	
 	const itemIds = Array.from(chooseBtns).map(chooseBtn => chooseBtn.dataset.itemId);
 	const itemNames = Array.from(chooseBtns).map(chooseBtn => chooseBtn.dataset.itemName);
 	const prices = Array.from(chooseBtns).map(chooseBtn => chooseBtn.dataset.price);
 
 	journeyEvent("view_item", itemIds, itemNames, prices);
+	return true;
 }
 
 function activateJournies() {
 	if (typeof gtag !== "function") return;
-	journeyProductPage();
+	if (!journeyProductPage()) return;
 	document.querySelectorAll(".btn-choose").forEach(link => {
 		const itemId = link.dataset.itemId;
 		const itemName = link.dataset.itemName;
@@ -436,6 +437,7 @@ function activateAnalytics() {
 		banner.classList.remove('show');
 		banner.classList.add('d-none');
 		initAnalytics();
+		activateJournies();
 	});
 
 	document.getElementById('rejectCookies').addEventListener('click', () => {
