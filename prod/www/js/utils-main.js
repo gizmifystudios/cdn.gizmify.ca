@@ -153,36 +153,6 @@ function displayAlert() {
 
 // -- Journies -- //
 
-function _getUtmData() {
-	const params = new URLSearchParams(window.location.search);
-	const keys = [ 'utm_source', 'utm_medium', 'utm_campaign' ];
-	const utmValues = keys.map(k => params.get(k) || '-');
-
-	let referrerHost = '-';
-	if (document.referrer && !document.referrer.includes('gizmify.ca')) {
-		try {
-			referrerHost = new URL(document.referrer).hostname;
-		} catch {
-			referrerHost = '-';
-		}
-	}
-
-	return {
-		utmStr: [...utmValues, referrerHost].join('|'),
-		hasSignal: utmValues.some(v => v !== '-') || referrerHost !== '-'
-	};
-}
-
-function activateFirstLastTouch() {
-	const { utmStr, hasSignal } = _getUtmData();
-	if (!hasSignal) return;
-
-	if (!localStorage.getItem('utmFirst')) {
-		localStorage.setItem('utmFirst', utmStr);
-	}
-	localStorage.setItem('utmLast', utmStr);
-}
-
 function buildLastTouchQuery() {
 	const utmFirst = localStorage.getItem('utmFirst');
 	const utmLast = localStorage.getItem('utmLast');
@@ -622,5 +592,4 @@ function activateAll() {
 	activateBackToTop();
 	activateScroll();
 	activateAnalytics();
-	activateFirstLastTouch();
 }
