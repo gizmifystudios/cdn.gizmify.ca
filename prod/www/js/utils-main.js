@@ -123,6 +123,12 @@ function activateTableOfContents() {
 
 	const target = window.location.hash;
 	if (target) _setTOCSection(target);
+
+	const activeSection = document.querySelector(".content-section:not(.d-none)");
+	if (activeSection) {
+		const activeBC = document.querySelector('#breadcrumb-current');
+		activeBC.textContent = activeSection.getAttribute("aria-title");
+	}
 }
 
 function activateFeatureVideos() {
