@@ -52,6 +52,12 @@ img#logo-footer {
 	color: #ffffffdd;
 }
 
+.nav-section {
+	font-family:'Quicksand';
+	font-weight: bold;
+	color: #8d9cad;
+}
+
 #header-gap, #promo-gap {
 	height: 100px;
 	padding: 0;
