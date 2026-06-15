@@ -92,7 +92,11 @@ function _setTOCSection(target) {
 	document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('d-none'));
 
 	const section = document.querySelector(target);
-	if (section) section.classList.remove('d-none');
+	if (section) {
+		section.classList.remove('d-none');
+		const activeBC = document.querySelector('#breadcrumb-current');
+		activeBC.textContent = section.getAttribute("aria-title");
+	}
 
 	document.querySelectorAll('#toc a').forEach(nav => nav.classList.remove('active'));
 	const navLink = document.querySelector(`#toc a[href="${target}"]`);
