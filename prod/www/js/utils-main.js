@@ -74,8 +74,9 @@ function activateScroll() {
 	document.querySelectorAll('a[href^="#"]').forEach(link => {
 		link.addEventListener('click', function (e) {
 			const targetId = this.getAttribute('href');
-			const target = document.querySelector(targetId);
+			if (targetId == "#") return;
 
+			const target = document.querySelector(targetId);
 			if (target) {
 				e.preventDefault();
 				target.scrollIntoView({
