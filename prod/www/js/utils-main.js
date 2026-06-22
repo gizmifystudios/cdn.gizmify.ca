@@ -605,8 +605,8 @@ function activateUpgrades() {
 		console.log(link.dataset.itemTo)
 		link.addEventListener("click", event => {
 			event.preventDefault();
-			upgradeFrom.textContent = link.dataset.itemFrom
-			upgradeTo.textContent = link.dataset.itemTo
+			upgradeFrom.forEach(span => { span.textContent = link.dataset.itemFrom; });
+			upgradeTo.forEach(span => { span.textContent = link.dataset.itemTo; });
 			currentUrl = link.dataset.itemLink;
 			modalReset();
 			modal.show();
