@@ -601,6 +601,8 @@ function activateUpgrades() {
 	}
 
 	document.querySelectorAll(".btn-upgrade").forEach(link => {
+		console.log(link.dataset.itemFrom)
+		console.log(link.dataset.itemTo)
 		link.addEventListener("click", event => {
 			event.preventDefault();
 			upgradeFrom.textContent = link.dataset.itemFrom
