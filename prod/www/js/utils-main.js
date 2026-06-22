@@ -633,9 +633,7 @@ function activateUpgrades() {
 			if (otpMode) formData.append("otp", otp);
 
 			const resp = await fetch(currentUrl, {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: formData
+				method: "POST", body: formData
 			});
 
 			let data = {};
