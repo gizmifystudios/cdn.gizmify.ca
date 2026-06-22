@@ -377,17 +377,17 @@ function activateVideoPlayer(streams) {
 			document.exitFullscreen?.() || document.webkitExitFullscreen?.();
 			toggleIcon(iconFullScreen, 'fa-expand', 'fa-compress');
 		}
-    }
+	}
 
-    fullscreenBtn.addEventListener('click', toggleFullscreen);
+	fullscreenBtn.addEventListener('click', toggleFullscreen);
 
-    player.addEventListener('dblclick', toggleFullscreen);
+	player.addEventListener('dblclick', toggleFullscreen);
 
-    document.addEventListener('fullscreenchange', () => {
+	document.addEventListener('fullscreenchange', () => {
 		if (!document.fullscreenElement) {
 			toggleIcon(iconFullScreen, 'fa-expand', 'fa-compress');
 		}
-    });
+	});
 
 	const observer = new IntersectionObserver(
 		entries => {
@@ -564,6 +564,112 @@ function activatePromo() {
 	});
 }
 
+function modalReset() {
+	otpMode = false;
+
+	emailInput.value = "";
+	otpInput.value = "";
+
+	otpContainer.classList.add("d-none");
+
+	errorBox.classList.add("d-none");
+	errorBox.textContent = "";
+
+	submitBtn.textContent = "Continue";
+	submitBtn.disabled = false;
+}
+
+function modalShowError(message) {
+	errorBox.textContent = message;
+	errorBox.classList.remove("d-none");
+}
+
+function modalClearError() {
+	errorBox.textContent = "";
+	errorBox.classList.add("d-none");
+}
+
+function activateUpgrades() {
+	const modalEl = document.getElementById("upgradeModal");
+	const modal = new bootstrap.Modal(modalEl);
+
+	const emailInput = document.getElementById("upgradeEmail");
+	const otpInput = document.getElementById("upgradeOtp");
+	const otpContainer = document.getElementById("otpContainer");
+	const errorBox = document.getElementById("upgradeError");
+	const submitBtn = document.getElementById("upgradeSubmit");
+
+	let currentUrl = null;
+	let otpMode = false;
+
+	document.querySelectorAll(".btn-upgrade").forEach(link => {
+		link.addEventListener("click", event => {
+			event.preventDefault();
+			modalReset();
+			currentUrl = link.dataset.itemLink;
+			modal.show();
+		});
+	});
+
+	submitBtn.addEventListener("click", async () => {
+		modalClearError();
+		
+		const email = emailInput.value.trim();
+		const otp = otpInput.value.trim();
+
+		if (!emailInput.checkValidity()) {
+			modalShowError("Please enter a valid email address.");
+			return;
+		}
+		if (!email) {
+			modalShowError("Please enter your email.");
+			return;
+		}
+		if (otpMode && !otp) {
+			modalShowError("Please enter the OTP code.");
+			return;
+		}
+		submitBtn.disabled = true;
+
+		try {
+			const formData = new FormData();
+			formData.append("email", email);
+			if (otpMode) formData.append("otp", otp);
+
+			const resp = await fetch(currentUrl, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: formData
+			});
+
+			let data = {};
+			try {
+				data = await resp.json();
+			}
+			catch (e) {}
+
+			if (!otpMode && resp.status === 202) {
+				otpMode = true;
+				otpContainer.classList.remove("d-none");
+				submitBtn.textContent = "Verify Code";
+				return;
+			}
+
+			if (otpMode && resp.status === 200) {
+				if (data.link) window.location.href = data.link;
+				return;
+			}
+
+			modalShowError(data.msg || `Request failed (${resp.status})`);
+		}
+		catch (error) {
+			modalShowError("Network error. Please try again.");
+		}
+		finally {
+			submitBtn.disabled = false;
+		}
+	});
+}
 
 function activateAll() {
 	loadIcons();
