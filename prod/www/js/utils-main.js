@@ -564,31 +564,6 @@ function activatePromo() {
 	});
 }
 
-function modalReset() {
-	otpMode = false;
-
-	emailInput.value = "";
-	otpInput.value = "";
-
-	otpContainer.classList.add("d-none");
-
-	errorBox.classList.add("d-none");
-	errorBox.textContent = "";
-
-	submitBtn.textContent = "Continue";
-	submitBtn.disabled = false;
-}
-
-function modalShowError(message) {
-	errorBox.textContent = message;
-	errorBox.classList.remove("d-none");
-}
-
-function modalClearError() {
-	errorBox.textContent = "";
-	errorBox.classList.add("d-none");
-}
-
 function activateUpgrades() {
 	const modalEl = document.getElementById("upgradeModal");
 	const modal = new bootstrap.Modal(modalEl);
@@ -601,6 +576,27 @@ function activateUpgrades() {
 
 	let currentUrl = null;
 	let otpMode = false;
+
+	function modalReset() {
+		otpMode = false;
+		emailInput.value = "";
+		otpInput.value = "";
+		otpContainer.classList.add("d-none");
+		errorBox.classList.add("d-none");
+		errorBox.textContent = "";
+		submitBtn.textContent = "Continue";
+		submitBtn.disabled = false;
+	}
+
+	function modalShowError(message) {
+		errorBox.textContent = message;
+		errorBox.classList.remove("d-none");
+	}
+
+	function modalClearError() {
+		errorBox.textContent = "";
+		errorBox.classList.add("d-none");
+	}
 
 	document.querySelectorAll(".btn-upgrade").forEach(link => {
 		link.addEventListener("click", event => {
