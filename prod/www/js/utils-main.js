@@ -573,6 +573,8 @@ function activateUpgrades() {
 	const otpContainer = document.getElementById("otpContainer");
 	const errorBox = document.getElementById("upgradeError");
 	const submitBtn = document.getElementById("upgradeSubmit");
+	const upgradeFrom = modalEl.querySelectorAll(".modal-upgrade-from");
+	const upgradeTo = modalEl.querySelectorAll(".modal-upgrade-to");
 
 	let currentUrl = null;
 	let otpMode = false;
@@ -601,8 +603,10 @@ function activateUpgrades() {
 	document.querySelectorAll(".btn-upgrade").forEach(link => {
 		link.addEventListener("click", event => {
 			event.preventDefault();
-			modalReset();
+			upgradeFrom.textContent = link.dataset.itemFrom
+			upgradeTo.textContent = link.dataset.itemTo
 			currentUrl = link.dataset.itemLink;
+			modalReset();
 			modal.show();
 		});
 	});
