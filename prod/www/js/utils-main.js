@@ -646,6 +646,11 @@ function activateUpgrades() {
 			}
 			catch (e) {}
 
+			if (resp.status === 429) {
+				modalShowError(`Too many requests. Please try again later`);
+				return;
+			}
+			
 			if (!otpMode && resp.status === 202) {
 				otpMode = true;
 				otpContainer.classList.remove("d-none");
