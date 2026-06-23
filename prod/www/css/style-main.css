@@ -129,6 +129,16 @@ nav.navbar-with-promo { top: 100px; }
 	box-shadow: 0 4px 14px rgba(0,0,0,0.6);
 }
 
+.btn-secondary {
+	background-color: #6c757d;
+	border-radius: 50px;
+	border: none;
+	padding: 0.6rem 1.4rem;
+	font-family:'Quicksand';
+	font-weight: normal;
+	box-shadow: 0 2px 7px rgba(0,0,0,0.3);
+}
+
 .btn-primary:hover {
 	background-color: #10bd35;
 }
@@ -181,7 +191,7 @@ nav.navbar-with-promo { top: 100px; }
 	padding: 80px 20px;
 }
 
-.card {
+.card, .modal-card {
 	background: #080808cc;
 	color: #ddd;
 	border-radius: 20px;
