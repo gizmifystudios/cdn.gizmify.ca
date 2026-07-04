@@ -568,21 +568,24 @@ function activateUpgrades() {
 	const modalEl = document.getElementById("upgradeModal");
 	const modal = new bootstrap.Modal(modalEl);
 
-	const emailInput = document.getElementById("upgradeEmail");
-	const otpInput = document.getElementById("upgradeOtp");
 	const otpContainer = document.getElementById("otpContainer");
 	const errorBox = document.getElementById("upgradeError");
 	const submitBtn = document.getElementById("upgradeSubmit");
 	const upgradeFrom = modalEl.querySelectorAll(".modal-upgrade-from");
 	const upgradeTo = modalEl.querySelectorAll(".modal-upgrade-to");
 
+	const inputs = new Map();
+	modalEl.querySelectorAll("input").forEach(input => {
+		inputs.set(input.name, input);
+	});
+
 	let currentUrl = null;
 	let otpMode = false;
 
 	function modalReset() {
 		otpMode = false;
-		emailInput.value = "";
-		otpInput.value = "";
+		inputs.get("upgradeEmail").value = "";
+		inputs.get("upgradeOtp").value = "";
 		otpContainer.classList.add("d-none");
 		errorBox.classList.add("d-none");
 		errorBox.textContent = "";
@@ -614,10 +617,11 @@ function activateUpgrades() {
 	submitBtn.addEventListener("click", async () => {
 		modalClearError();
 		
-		const email = emailInput.value.trim();
-		const otp = otpInput.value.trim();
+		const email = inputs.get("upgradeEmail").value.trim();
+		const otp = inputs.get("upgradeOtp").value.trim();
+		const ttResp = inputs.get("cf-turnstile-response").value;
 
-		if (!emailInput.checkValidity()) {
+		if (!inputs.get("upgradeEmail").checkValidity()) {
 			modalShowError("Please enter a valid email address.");
 			return;
 		}
@@ -634,6 +638,7 @@ function activateUpgrades() {
 		try {
 			const formData = new FormData();
 			formData.append("email", email);
+			formData.append("cf-turnstile-response", ttResp);
 			if (otpMode) formData.append("otp", otp);
 
 			const resp = await fetch(currentUrl, {
@@ -647,7 +652,7 @@ function activateUpgrades() {
 			catch (e) {}
 
 			if (resp.status === 429) {
-				modalShowError(`Too many requests. Please try again later`);
+				modalShowError(data.msg ? data.msg : `Too many requests. Please try again later`);
 				return;
 			}
 			
