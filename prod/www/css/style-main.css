@@ -25,6 +25,10 @@ a {
 	color: #d3d3d3;
 }
 
+.lead-secondary {
+	color: #cecece;
+}
+
 .lead-shadow {
 	text-shadow: 1px 1px 5px rgba(0, 0, 0, 1.0);
 }
