@@ -25,6 +25,11 @@ a {
 	color: #d3d3d3;
 }
 
+.tagline {
+	font-size: 1.75rem;
+	color: #d3d3d3;
+}
+
 @media (max-width: 768px) {
 	.lead {
 		font-size: 2.1rem;
