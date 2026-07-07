@@ -650,6 +650,11 @@ function activateUpgrades() {
 				data = await resp.json();
 			}
 			catch (e) {}
+			
+			if (resp.status === 404) {
+				modalShowError(data.msg ? data.msg : `Request unsuccessful. Please try again later`);
+				return;
+			}
 
 			if (resp.status === 429) {
 				modalShowError(data.msg ? data.msg : `Too many requests. Please try again later`);
