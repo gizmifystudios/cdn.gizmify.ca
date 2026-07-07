@@ -579,10 +579,6 @@ function activateUpgrades() {
 		inputs.set(input.name, input);
 	});
 
-	let turnstileWidgetId = turnstile.render("#turnstile-container", {
-		sitekey: "0x4AAAAAAB3rydSM4F6gbJyi", size: "invisible"
-	});
-
 	let currentUrl = null;
 	let otpMode = false;
 
@@ -624,8 +620,6 @@ function activateUpgrades() {
 		const email = inputs.get("upgradeEmail").value.trim();
 		const otp = inputs.get("upgradeOtp").value.trim();
 		const ttResp = document.querySelector('input[name="cf-turnstile-response"]').value;
-		console.log(document.querySelector('input[name="cf-turnstile-response"]').value);
-		console.log(ttResp);
 
 		if (!inputs.get("upgradeEmail").checkValidity()) {
 			modalShowError("Please enter a valid email address.");
@@ -650,7 +644,6 @@ function activateUpgrades() {
 			const resp = await fetch(currentUrl, {
 				method: "POST", body: formData
 			});
-			turnstile.reset(turnstileWidgetId);
 
 			let data = {};
 			try {
