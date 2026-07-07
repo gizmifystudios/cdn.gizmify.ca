@@ -623,7 +623,7 @@ function activateUpgrades() {
 		
 		const email = inputs.get("upgradeEmail").value.trim();
 		const otp = inputs.get("upgradeOtp").value.trim();
-		const ttResp = document.querySelector('input[name="cf-turnstile-response"]').value;
+		var ttResp = document.querySelector('input[name="cf-turnstile-response"]').value;
 		console.log(ttResp);
 
 		if (!inputs.get("upgradeEmail").checkValidity()) {
