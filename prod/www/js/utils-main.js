@@ -579,9 +579,11 @@ function activateUpgrades() {
 		inputs.set(input.name, input);
 	});
 
-	let turnstileWidgetId = turnstile.render("#turnstile-container", {
-		sitekey: "0x4AAAAAAB3rydSM4F6gbJyi", size: "invisible"
-	});
+	window.onloadTurnstileCallback = function () {
+		let turnstileWidgetId = turnstile.render("#turnstile-container", {
+			sitekey: "0x4AAAAAAB3rydSM4F6gbJyi", size: "invisible"
+		});
+	};
 
 	function onTurnstileSuccess(token) {
 		console.log("Turnstile token:", token);
