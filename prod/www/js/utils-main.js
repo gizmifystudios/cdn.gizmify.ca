@@ -644,9 +644,6 @@ function activateUpgrades() {
 			const resp = await fetch(currentUrl, {
 				method: "POST", body: formData
 			});
-			if (!otpMode) {
-				turnstile.reset();
-			}
 
 			let data = {};
 			try {
