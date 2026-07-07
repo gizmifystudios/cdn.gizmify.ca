@@ -579,6 +579,14 @@ function activateUpgrades() {
 		inputs.set(input.name, input);
 	});
 
+	let turnstileWidgetId = turnstile.render("#turnstile-container", {
+		sitekey: "0x4AAAAAAB3rydSM4F6gbJyi", size: "invisible"
+	});
+
+	function onTurnstileSuccess(token) {
+		console.log("Turnstile token:", token);
+	}
+
 	let currentUrl = null;
 	let otpMode = false;
 
@@ -644,6 +652,7 @@ function activateUpgrades() {
 			const resp = await fetch(currentUrl, {
 				method: "POST", body: formData
 			});
+			turnstile.reset(turnstileWidgetId);
 
 			let data = {};
 			try {
