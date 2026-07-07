@@ -619,7 +619,7 @@ function activateUpgrades() {
 		
 		const email = inputs.get("upgradeEmail").value.trim();
 		const otp = inputs.get("upgradeOtp").value.trim();
-		const ttResp = inputs.get("cf-turnstile-response").value;
+		const ttResp = document.querySelector('input[name="cf-turnstile-response"]').value;
 
 		if (!inputs.get("upgradeEmail").checkValidity()) {
 			modalShowError("Please enter a valid email address.");
