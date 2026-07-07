@@ -579,15 +579,9 @@ function activateUpgrades() {
 		inputs.set(input.name, input);
 	});
 
-	window.onloadTurnstileCallback = function () {
-		let turnstileWidgetId = turnstile.render("#turnstile-container", {
-			sitekey: "0x4AAAAAAB3rydSM4F6gbJyi", size: "invisible"
-		});
-	};
-
-	function onTurnstileSuccess(token) {
-		console.log("Turnstile token:", token);
-	}
+	let turnstileWidgetId = turnstile.render("#turnstile-container", {
+		sitekey: "0x4AAAAAAB3rydSM4F6gbJyi", size: "invisible"
+	});
 
 	let currentUrl = null;
 	let otpMode = false;
