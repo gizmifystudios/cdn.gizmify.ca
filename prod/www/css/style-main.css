@@ -10,7 +10,7 @@ body {
 	color: #f0f0f0;
 }
 
-h1, h2, h3, h4, h5, h6, .text-headline {
+h1, h2, h3, h4, h5, h6, .text-headline, .quicktext {
 	font-family:'Quicksand';
 }
 
