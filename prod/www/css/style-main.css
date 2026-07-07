@@ -715,9 +715,9 @@ nav.toc a.active {
 	transition: opacity 0.3s ease;
 }
 
-.content-section h4 { color:#0eab2f; }
-.content-section h5 { color:#28a745; }
-.content-section h6 { color:#17a2b8; }
+.content-section h4 { color:#198754; }
+.content-section h5 { color:#198754; }
+.content-section h6 { color:#6c757d; }
 
 .d-none {
 	display: none !important;
