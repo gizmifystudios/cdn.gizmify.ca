@@ -695,7 +695,9 @@ function activateContactTypes() {
 		support: "Hi! How can we help?"
 	};
 	select.addEventListener("change", function () {
-		textarea.value = this.value == "support" ? supportTemplate : "";
+		if (textarea.value.trim() == "") {
+			textarea.value = this.value == "support" ? supportTemplate : "";
+		}
 		textarea.placeholder = placeholders[this.value] || "Hi! What's on your mind?";
 	});
 }
