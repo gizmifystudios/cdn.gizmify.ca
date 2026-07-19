@@ -684,6 +684,24 @@ function activateUpgrades() {
 	});
 }
 
+function activateContactTypes() {
+	const select = document.getElementById("contact-type-dropdown");
+	const textarea = document.getElementById("message");
+	const supportTemplate = document.getElementById("support-template").innerText;
+
+	const placeholders = {
+		general: "Hi! What's on your mind?",
+		feature: "Hi! Tell us about the feature you'd like to have...",
+		support: "Hi! How can we help?"
+	};
+	select.addEventListener("change", function () {
+		if (this.value == "support") {
+			textarea.value = supportTemplate;
+		}
+		textarea.placeholder = placeholders[this.value] || "Hi! What's on your mind?";
+	});
+}
+
 function activateAll() {
 	loadIcons();
 	activateTooltips();
