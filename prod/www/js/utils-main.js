@@ -122,6 +122,12 @@ function activateTableOfContents() {
 		});
 	});
 
+	window.addEventListener("popstate", function(e) {
+		const hash = window.location.hash;
+		_setTOCSection(hash ? hash : "#section-overview");
+		backToTop();
+	});
+
 	const target = window.location.hash;
 	if (target) _setTOCSection(target);
 
@@ -652,7 +658,7 @@ function activateUpgrades() {
 			catch (e) {}
 			
 			if (resp.status === 404) {
-				modalShowError(data.msg ? data.msg : `Request unsuccessful. Please try again later`);
+				modalShowError(data.msg ? data.msg : `Request unsuccessful. Please refresh and again`);
 				return;
 			}
 
