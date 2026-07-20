@@ -117,7 +117,7 @@ function activateTableOfContents() {
 				e.preventDefault();
 				_setTOCSection(target);
 				backToTop();
-				history.pushState(null, "", target);
+				//history.pushState(null, "", target);
 			}
 		});
 	});
