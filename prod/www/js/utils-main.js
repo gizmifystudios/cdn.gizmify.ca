@@ -411,6 +411,67 @@ function activateVideoPlayer(streams) {
 	observer.observe(player);
 }
 
+function activateVideoHero(streams) {
+	const video = document.getElementById('video');
+	const player = document.getElementById('player');
+	
+	let hls;
+	let currentResolution = 480;
+	let inControl = false;
+
+	function togglePlay() {
+		if (video.paused) {
+			video.play();
+		}
+		else {
+			video.pause();
+		}
+		inControl = true;
+	}
+
+	function selectInitialResolution() {
+		const width = window.innerWidth;
+		if (width >= 1200) return 1080;
+		if (width >= 768) return 720;
+		return 480;
+	}
+
+	function loadStream(res) {
+		currentResolution = res;
+		if (hls) {
+			hls.destroy();
+		}
+		if (Hls.isSupported()) {
+			hls = new Hls();
+			hls.loadSource(streams[res]);
+			hls.attachMedia(video);
+		}
+		else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+			video.src = streams[res];
+		}
+	}
+
+	initRes = selectInitialResolution();
+	loadStream(initRes);
+
+	video.onclick = togglePlay;
+
+	const observer = new IntersectionObserver(
+		entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					if (!inControl) video.play().catch(()=>{});
+				}
+				else {
+					video.pause();
+				}
+			});
+		},
+		{ threshold:0.75 }
+	);
+	observer.observe(player);
+}
+
 // -- Analytics -- //
 
 function initAnalytics() {
