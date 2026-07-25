@@ -414,6 +414,7 @@ function activateVideoPlayer(streams) {
 function activateVideoHero(streams) {
 	const video = document.getElementById('video');
 	const player = document.getElementById('player');
+	const overlayPlay = document.getElementById('overlayPlay');
 	
 	let hls;
 	let currentResolution = 480;
@@ -455,6 +456,15 @@ function activateVideoHero(streams) {
 	loadStream(initRes);
 
 	video.onclick = togglePlay;
+	overlayPlay.onclick = togglePlay;
+
+	video.addEventListener('play', () => {
+		overlayPlay.classList.add('hidden');
+	});
+
+	video.addEventListener('pause', () => {
+		overlayPlay.classList.remove('hidden');
+	});
 
 	const observer = new IntersectionObserver(
 		entries => {

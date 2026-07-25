@@ -805,6 +805,11 @@ p.attribute-desc {
 	}
 }
 
+.workflow-section {
+	background-color:#080808;
+	padding-top: 100px;
+}
+
 .player-container {
 	display: flex;
 	align-items: center;
@@ -913,6 +918,15 @@ p.attribute-desc {
 	padding: 4px;
 }
 .player-settings-menu.show { display: flex; }
+
+.player-passive {
+	width: 100%;
+	aspect-ratio: 16/9;
+	background: #111;
+	overflow: hidden;
+	box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+	cursor: pointer;
+}
 
 #cookieBanner {
 	position: fixed;
