@@ -777,7 +777,7 @@ function activateSectionBlur(className) {
 	const section = document.querySelector("."+className);
 	window.addEventListener("scroll", () => {
 		const start = 600;
-		const end = 1200;
+		const end = 900;
 		const maxBlur = 6;
 
 		const progress = Math.max(0, Math.min(1, (window.scrollY - start) / (end - start)));
