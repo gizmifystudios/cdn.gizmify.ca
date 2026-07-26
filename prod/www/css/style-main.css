@@ -805,13 +805,6 @@ p.attribute-desc {
 	}
 }
 
-.workflow-section {
-	background-color:#080808;
-	position: relative;
-    height: 80vh; /* adjust */
-    overflow: hidden;
-}
-
 .player-container {
 	display: flex;
 	align-items: center;
@@ -842,13 +835,6 @@ p.attribute-desc {
 	height: 100%;
 	object-fit: cover;
 	display: block;
-}
-
-.player-passive video {
-	width: 100%;
-	height: auto;
-	display: block;
-	object-fit: cover;
 }
 
 .player-controls {
@@ -928,16 +914,84 @@ p.attribute-desc {
 }
 .player-settings-menu.show { display: flex; }
 
-.player-passive {
-	position: absolute;
+.hero-video {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero-video-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 110%;
+    transform: translateY(-5%);
+}
+
+.hero-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
     left: 0;
-    bottom: 0;
-	width: 100%;
-	aspect-ratio: 16/9;
-	background: #111;
-	overflow: hidden;
-	box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-	cursor: pointer;
+    right: 0;
+    bottom: 60px;
+    padding: 0 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 3;
+}
+
+.hero-badges {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.hero-badges img {
+    height: 45px;
+    width: auto;
+}
+
+.hero-title {
+    text-align: right;
+    max-width: 650px;
+}
+
+.hero-title h1 {
+    color: white;
+    font-size: clamp(32px, 4vw, 64px);
+    line-height: 1.05;
+    margin: 0;
+}
+
+.hero-gradient {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.65),
+            transparent 45%
+        );
+    z-index: 2;
+}
+
+@media(max-width:768px) {
+    .hero-video { height: 65vh; }
+    .hero-overlay {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        bottom: 40px;
+    }
+    .hero-title { text-align: left; }
 }
 
 #cookieBanner {
