@@ -774,6 +774,7 @@ function activateContactTypes() {
 }
 
 function activateSectionBlur(className) {
+	const section = document.querySelector("."+className);
 	window.addEventListener("scroll", () => {
 		const maxBlur = 6;
 
