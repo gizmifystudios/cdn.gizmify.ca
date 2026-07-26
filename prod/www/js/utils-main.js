@@ -471,7 +471,7 @@ function activateVideoHero(streams) {
 				}
 			});
 		},
-		{ threshold:0.5 }
+		{ threshold:0.65 }
 	);
 	observer.observe(player);
 }

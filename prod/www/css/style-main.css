@@ -304,8 +304,6 @@ section.banner-section {
 	);
 	background-size: cover;
 	background-repeat: no-repeat;
-	backdrop-filter: blur(4px);
-	-webkit-backdrop-filter: blur(4px);
 }
 
 @media (max-width: 768px) {
@@ -942,8 +940,8 @@ p.attribute-desc {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 60px;
-    padding: 0 6%;
+    bottom: 70px;
+    padding: 0 4%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
