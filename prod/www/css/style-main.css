@@ -304,6 +304,8 @@ section.banner-section {
 	);
 	background-size: cover;
 	background-repeat: no-repeat;
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
 }
 
 @media (max-width: 768px) {
@@ -998,6 +1000,15 @@ p.attribute-desc {
         bottom: 40px;
     }
     .hero-title { text-align: left; }
+	.hero-badges { gap: 18px; }
+	.hero-badges img {
+		height: 40px;
+		width: auto;
+	}
+	.hero-title img {
+		height:64px;
+		width:auto;
+	}
 }
 
 #cookieBanner {
