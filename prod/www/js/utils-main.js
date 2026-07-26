@@ -776,9 +776,9 @@ function activateContactTypes() {
 function activateSectionBlur(className) {
 	const section = document.querySelector("."+className);
 	window.addEventListener("scroll", () => {
-		const start = 300;
-		const end = 800;
-		const maxBlur = 12;
+		const start = 600;
+		const end = 1200;
+		const maxBlur = 6;
 
 		const progress = Math.max(0, Math.min(1, (window.scrollY - start) / (end - start)));
 		section.style.setProperty("--blur", `${progress * maxBlur}px`);
