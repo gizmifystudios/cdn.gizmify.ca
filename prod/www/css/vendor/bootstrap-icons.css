@@ -1703,4 +1703,3 @@ url("https://cdn.gizmify.ca/prod/www/font/bootstrap-icons.woff2") format("woff")
 .bi-filetype-json::before { content: "\f791"; }
 .bi-filetype-pptx::before { content: "\f792"; }
 .bi-filetype-xlsx::before { content: "\f793"; }
-

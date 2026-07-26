@@ -964,6 +964,11 @@ p.attribute-desc {
     max-width: 650px;
 }
 
+.hero-title img {
+	height:128px;
+	width:auto;
+}
+
 .hero-title h1 {
     color: white;
     font-size: clamp(32px, 4vw, 64px);
