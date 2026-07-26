@@ -414,6 +414,7 @@ function activateVideoPlayer(streams) {
 function activateVideoHero(streams) {
 	const player = document.getElementById('heroPlayer');
 	const video = document.getElementById('heroVideo');
+	const gradient = document.getElementById('heroGradient');
 	
 	let hls;
 	let currentResolution = 480;
@@ -455,6 +456,7 @@ function activateVideoHero(streams) {
 	loadStream(initRes);
 
 	video.onclick = togglePlay;
+	gradient.onclick = togglePlay;
 
 	const observer = new IntersectionObserver(
 		entries => {

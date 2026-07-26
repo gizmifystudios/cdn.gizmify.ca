@@ -950,12 +950,12 @@ p.attribute-desc {
 
 .hero-badges {
     display: flex;
-    gap: 16px;
+    gap: 24px;
     align-items: center;
 }
 
 .hero-badges img {
-    height: 45px;
+    height: 80px;
     width: auto;
 }
 
@@ -981,6 +981,7 @@ p.attribute-desc {
             transparent 45%
         );
     z-index: 2;
+	cursor: pointer;
 }
 
 @media(max-width:768px) {
