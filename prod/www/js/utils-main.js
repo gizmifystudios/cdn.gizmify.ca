@@ -773,18 +773,6 @@ function activateContactTypes() {
 	});
 }
 
-function activateSectionBlur(className) {
-	const section = document.querySelector("."+className);
-	window.addEventListener("scroll", () => {
-		const maxBlur = 6;
-
-		const rect = section.getBoundingClientRect();
-		const viewportHeight = window.innerHeight;
-		const progress = Math.max(0, Math.min(1, (viewportHeight - rect.top) / viewportHeight));
-		section.style.setProperty("--blur", `${progress * maxBlur}px`);
-	});
-}
-
 function activateAll() {
 	loadIcons();
 	activateTooltips();
