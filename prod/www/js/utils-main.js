@@ -267,7 +267,7 @@ function activateVideoPlayer(streams) {
 	const iconFullScreen = document.querySelector('#fullscreenBtn i')
 	
 	let hls;
-	let currentResolution = 480;
+	let currentResolution = '480';
 	let inControl = false;
 
 	function toggleIcon(element, addClass, removeClass) {
@@ -287,9 +287,9 @@ function activateVideoPlayer(streams) {
 
 	function selectInitialResolution() {
 		const width = window.innerWidth;
-		if (width >= 1200) return 1080;
-		if (width >= 768) return 720;
-		return 480;
+		if (width >= 1200) return '1080';
+		if (width >= 768) return '720';
+		return '480';
 	}
 
 	function loadStream(res) {
@@ -418,7 +418,7 @@ function activateVideoHero(streams) {
 	const overlay = document.getElementById('heroOverlay');
 	
 	let hls;
-	let currentResolution = 480;
+	let currentResolution = 'mobile';
 	let inControl = false;
 
 	function togglePlay() {
@@ -433,9 +433,9 @@ function activateVideoHero(streams) {
 
 	function selectInitialResolution() {
 		const width = window.innerWidth;
-		if (width >= 1200) return 1080;
-		if (width >= 768) return 720;
-		return 480;
+		if (width >= 1200) return '1080';
+		if (width >= 768) return '720';
+		return 'mobile';
 	}
 
 	function loadStream(res) {
