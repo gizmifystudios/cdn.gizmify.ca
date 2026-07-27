@@ -285,7 +285,7 @@ function activateVideoPlayer(streams) {
 		inControl = true;
 	}
 
-	function selectInitialResolution() {
+	function getInitialResolution() {
 		const width = window.innerWidth;
 		if (width >= 1200) return '1080';
 		if (width >= 768) return '720';
@@ -307,7 +307,7 @@ function activateVideoPlayer(streams) {
 		}
 	}
 
-	initRes = selectInitialResolution();
+	initRes = getInitialResolution();
 	loadStream(initRes);
 	resolutionSelect.value = String(initRes);
 
@@ -431,11 +431,18 @@ function activateVideoHero(streams) {
 		inControl = true;
 	}
 
-	function selectInitialResolution() {
+	function getInitialResolution() {
 		const width = window.innerWidth;
 		if (width >= 1200) return '1080';
 		if (width >= 768) return '720';
 		return 'mobile';
+	}
+
+	function updateResolution() {
+		const res = getInitialResolution();
+		if (res != currentResolution) {
+			loadStream(res);
+		}
 	}
 
 	function loadStream(res) {
@@ -453,7 +460,7 @@ function activateVideoHero(streams) {
 		}
 	}
 
-	initRes = selectInitialResolution();
+	initRes = getInitialResolution();
 	loadStream(initRes);
 
 	video.onclick = togglePlay;
@@ -474,6 +481,8 @@ function activateVideoHero(streams) {
 		{ threshold:0.65 }
 	);
 	observer.observe(player);
+
+	window.addEventListener("resize", updateResolution);
 }
 
 // -- Analytics -- //
