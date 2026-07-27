@@ -415,7 +415,7 @@ function activateVideoHero(streams) {
 	const player = document.getElementById('heroPlayer');
 	const video = document.getElementById('heroVideo');
 	const gradient = document.getElementById('heroGradient');
-	const overlay = document.getElementById('heroOverlay');
+	//const overlay = document.getElementById('heroOverlay');
 	const overlayPlay = document.getElementById('overlayPlay');
 	
 	let hls;
