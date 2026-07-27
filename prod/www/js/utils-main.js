@@ -451,7 +451,7 @@ function activateVideoHero(streams) {
 		const res = getInitialResolution();
 		if (res != currentResolution) {
 			loadStream(res);
-			video.play()
+			video.play();
 		}
 	}
 
