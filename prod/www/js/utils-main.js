@@ -416,11 +416,20 @@ function activateVideoHero(streams) {
 	const video = document.getElementById('heroVideo');
 	const gradient = document.getElementById('heroGradient');
 	const overlay = document.getElementById('heroOverlay');
+	const overlayPlay = document.getElementById('overlayPlay');
 	
 	let hls;
 	let currentResolution = 'mobile';
 	let inControl = false;
 
+	video.addEventListener('play', () => {
+		overlayPlay.classList.add('hidden');
+	});
+
+	video.addEventListener('pause', () => {
+		overlayPlay.classList.remove('hidden');
+	});
+	
 	function togglePlay() {
 		if (video.paused) {
 			video.play();
@@ -442,6 +451,7 @@ function activateVideoHero(streams) {
 		const res = getInitialResolution();
 		if (res != currentResolution) {
 			loadStream(res);
+			video.play()
 		}
 	}
 
@@ -465,7 +475,8 @@ function activateVideoHero(streams) {
 
 	video.onclick = togglePlay;
 	gradient.onclick = togglePlay;
-	overlay.onclick = togglePlay;
+	//overlay.onclick = togglePlay;
+	overlayPlay.onclick = togglePlay;
 
 	const observer = new IntersectionObserver(
 		entries => {
