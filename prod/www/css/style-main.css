@@ -849,6 +849,14 @@ p.attribute-desc {
 	}
 }
 
+.who-its-for-text {
+	background: radial-gradient(
+		ellipse at center,
+		rgba(0,0,0,0.8) 0%,
+		rgba(0,0,0,0.0) 65%,
+		rgba(0,0,0,0.0) 100%
+	);
+}
 .player-container {
 	display: flex;
 	align-items: center;
