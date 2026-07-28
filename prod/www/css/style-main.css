@@ -998,14 +998,6 @@ p.attribute-desc {
     width: auto;
 }
 
-@media(max-width:768px) {
-	.hero-badges {
-		display: grid;
-		gap: 0px;
-		align-items: center;
-	}
-}
-
 .hero-title {
     text-align: right;
     max-width: 650px;
@@ -1045,7 +1037,10 @@ p.attribute-desc {
         bottom: 40px;
     }
     .hero-title { text-align: left; }
-	.hero-badges { gap: 18px; }
+	.hero-badges {
+		display: grid;
+		gap: 18px;
+	}
 	.hero-badges img {
 		height: 40px;
 		width: auto;
