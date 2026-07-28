@@ -252,6 +252,11 @@ footer a:hover {
 	transform: scale(1);
 }
 
+.btn-download { font-size: 1.5em; }
+@media (max-width: 768px) {
+	.btn-download {font-size: 1.0em; }
+}
+
 section.goal-section {
 	background-image: url("https://cdn.gizmify.ca/prod/www/img/home/mascott-bg-md.jpg");
 	background-image: -webkit-image-set(
